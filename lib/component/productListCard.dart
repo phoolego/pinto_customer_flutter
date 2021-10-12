@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pinto_admin_flutter/constant.dart';
+import 'package:pinto_customer_flutter/constant.dart';
 
 class ProductCard extends StatelessWidget {
   String productName = '';

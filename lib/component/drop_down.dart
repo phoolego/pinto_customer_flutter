@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:dropdown_search/dropdown_search.dart';
-import 'package:pinto_customer__flutter/constant.dart';
+import 'package:pinto_customer_flutter/constant.dart';
 
 class DropDown extends StatelessWidget {
   String? headingLabel = '';

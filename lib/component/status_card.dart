@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pinto_admin_flutter/constant.dart';
-import 'package:pinto_admin_flutter/model/stock_product.dart';
-import 'package:pinto_admin_flutter/service/date_format.dart';
+import 'package:pinto_customer_flutter/constant.dart';
+import 'package:pinto_customer_flutter/model/stock_product.dart';
+import 'package:pinto_customer_flutter/service/date_format.dart';
 
 class StatusCard extends StatelessWidget {
   StockProduct stockProduct;
