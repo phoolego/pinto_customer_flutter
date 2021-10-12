@@ -46,7 +46,7 @@ class Auth {
           'password':password,
           'address':address,
           'contact':contact,
-          'role':'ADMIN'
+          'role':'CUSTOMER'
         }
       );
       return response.data['insertId'];
