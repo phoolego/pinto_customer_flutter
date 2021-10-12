@@ -29,7 +29,7 @@ class DropDown extends StatelessWidget {
         mode: Mode.MENU,
         items: items,
         label: headingLabel,
-        dropdownSearchBaseStyle: kContentTextStyle,
+        dropdownSearchBaseStyle: kContentTextBlack,
         hint: hintText,
         popupItemDisabled: (String s) => s.startsWith('I'),
         onChanged: func,

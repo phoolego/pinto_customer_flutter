@@ -15,6 +15,10 @@ SideMenu.defaultMenu(String currentPage){
   this.lastName = Auth.user.lastname;
   this.currentPage = currentPage;
 }
+SideMenu.withoutAny(){
+  this.firstName = Auth.user.firstname;
+  this.lastName = Auth.user.lastname;
+}
 SideMenu({this.firstName, this.lastName});
 
   @override
@@ -49,7 +53,7 @@ SideMenu({this.firstName, this.lastName});
             ),
             ListTile(
               leading: Icon(Icons.home),
-              title: Text('หน้าหลัก',style: kContentTextStyle,),
+              title: Text('หน้าหลัก',style: kContentTextBlack,),
               onTap: (){
                 if(currentPage=='หน้าหลัก'){
                   Navigator.pop(context);
@@ -60,7 +64,7 @@ SideMenu({this.firstName, this.lastName});
             ),
             ListTile(
               leading: Icon(Icons.account_circle),
-              title: Text('โปรไฟล์ของฉัน',style: kContentTextStyle),
+              title: Text('โปรไฟล์ของฉัน',style: kContentTextBlack),
               onTap: (){
                 if(currentPage=='โปรไฟล์ของฉัน'){
                   Navigator.pop(context);
@@ -72,7 +76,7 @@ SideMenu({this.firstName, this.lastName});
             ),
             ListTile(
               leading: Icon(Icons.exit_to_app),
-              title: Text('ออกจากระบบ',style: kContentTextStyle),
+              title: Text('ออกจากระบบ',style: kContentTextBlack),
               onTap: ()async {
                 await Auth.logout();
                 Navigator.pushReplacementNamed(context,'/');
