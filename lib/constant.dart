@@ -1,125 +1,41 @@
 import 'package:flutter/material.dart';
 
+//heading
 const kHeadingTextStyle = TextStyle(
-  fontFamily: 'SansThai',
+  fontFamily: 'Prompt',
   fontSize: 18.0,
 );
-
-const kContentTextWhiteBold = TextStyle(
-  fontFamily: 'SansThai',
+//content
+const kContentTextWhiteBold =
+    TextStyle(fontFamily: 'Prompt', fontSize: 16.0, color: deepWhite, fontWeight: FontWeight.bold);
+const kContentTextWhite = TextStyle(
+  fontFamily: 'Prompt',
   fontSize: 16.0,
   color: deepWhite,
-  fontWeight: FontWeight.bold
 );
-const kContentTextWhite = TextStyle(
-    fontFamily: 'SansThai',
-    fontSize: 16.0,
-    color: deepWhite,
-);
-
-const kContentTextMedBlue = TextStyle(
-  fontFamily: 'SansThai',
-  fontSize: 16.0,
-  color: mediumBlue,
-);
-
-const kContentTextMedBlack = TextStyle(
-  fontFamily: 'SansThai',
-  fontSize: 16.0,
-  color: mediumBlack,
-);
-
-const kSubHeadingBoldTextStyle = TextStyle(
-  fontFamily: 'SansThai',
-  fontSize: 16.0,
-  fontWeight: FontWeight.bold
-);
-
-const kHeadingBoldTextStyle = TextStyle(
-    fontFamily: 'SansThai',
-    fontSize: 18.0,
-    fontWeight: FontWeight.bold
-);
-
-const kTextDetailGreyColor = TextStyle(
-    fontFamily: 'SansThai',
-    fontSize: 14.0,
-    color: mediumBlack
-);
-
-const kStatusCompleteTextColor = TextStyle(
-    fontFamily: 'SansThai',
-    fontSize: 16.0,
-    color: successGreen
-);
-
-const kStatusWaringTextColor = TextStyle(
-    fontFamily: 'SansThai',
-    fontSize: 16.0,
-    color: waitingDeepYellow
-);
-
-const kStatusNotCompleteTextColor = TextStyle(
-    fontFamily: 'SansThai',
-    fontSize: 16.0,
-    color: notYetDeepRed
-);
-
-const kContentTextStyle = TextStyle(
-  fontFamily: 'SansThai',
-  fontSize: 16.0,
-);
-
-const kAppbarTextStyle = TextStyle(
+const kContentTextBlackBold =
+    TextStyle(fontFamily: 'Prompt', fontSize: 16.0, color: deepBlack, fontWeight: FontWeight.bold);
+const kContentTextBlack = TextStyle(
   fontFamily: 'Prompt',
-  fontSize: 18.0,
+  fontSize: 16.0,
+  color: deepBlack,
 );
-const kAppbarDeepYellowTextStyle = TextStyle(
-  fontFamily: 'Prompt',
-  fontSize: 18.0,
-  color: waitingYellow,
-);
+//status
+const kStatusCompleteTextColor = TextStyle(fontFamily: 'Prompt', fontSize: 16.0, color: successGreen);
+const kStatusWaitingTextColor = TextStyle(fontFamily: 'Prompt', fontSize: 16.0, color: waitingDeepYellow);
+const kStatusNotCompleteTextColor = TextStyle(fontFamily: 'Prompt', fontSize: 16.0, color: notYetDeepRed);
+
+const kAppbarTextStyle = TextStyle(fontFamily: 'Prompt', fontSize: 18.0, color: deepWhite);
 
 const kLoginHeadingTextStyle = TextStyle(
   fontFamily: 'Prompt',
   fontSize: 25.0,
   fontWeight: FontWeight.bold,
 );
-const kNormalTextStyle = TextStyle(
-fontFamily: 'Prompt',
-fontSize: 16.0
-);
-
-const kNormalAlertTextStyle = TextStyle(
-fontFamily: 'Prompt',
-fontSize: 16.0,
-color:deepOrange
-);
-
-const kNormalErrorTextStyle = TextStyle(
-    fontFamily: 'Prompt',
-    fontSize: 16.0,
-    color:notYetDeepRed
-);
-
-const kNormalSuccessTextStyle = TextStyle(
-    fontFamily: 'Prompt',
-    fontSize: 16.0,
-    color:successGreen
-);
-
-const whiteSmallNormalTextStyle = TextStyle(
-fontFamily: 'Prompt',
-fontSize: 14.0,
-color: deepWhite
-);
-
-const blackSmallNormalTextStyle = TextStyle(
-fontFamily: 'Prompt',
-fontSize: 14.0,
-color: deepBlack
-);
-
+const kNormalErrorTextStyle = TextStyle(fontFamily: 'Prompt', fontSize: 16.0, color: notYetDeepRed);
+//button
+const buttonWhiteTextStyle = TextStyle(fontFamily: 'Prompt', fontSize: 14.0, color: deepWhite);
+const buttonBlackTextStyle = TextStyle(fontFamily: 'Prompt', fontSize: 14.0, color: deepBlack);
 
 //Farm's color
 const Color deepOrange = Color(0xFFE19F00);
@@ -129,8 +45,8 @@ const Color deepBlue = Color(0xFF395066);
 const Color mediumBlue = Color(0xFF48637D);
 const Color lightBlue = Color(0xFF527E9B);
 //Customer's color
-// soon
-
+const Color deepGreen = Color(0xFF5C8C52);
+const Color lightGreen = Color(0xFF84B67A);
 //Status color
 const Color successDeepGreen = Color(0xFF25AF43);
 const Color successGreen = Color(0xFF3ADC5D);
