@@ -8,8 +8,7 @@ class SideMenu extends StatelessWidget {
 
 String? firstName = '';
 String? lastName = '';
-String? role = '';
-String currentPage='จัดการคลังสินค้า';
+String currentPage='หน้าหลัก';
 
 SideMenu.defaultMenu(String currentPage){
   this.firstName = Auth.user.firstname;
