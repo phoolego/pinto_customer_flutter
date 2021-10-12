@@ -14,10 +14,9 @@ String currentPage='จัดการคลังสินค้า';
 SideMenu.defaultMenu(String currentPage){
   this.firstName = Auth.user.firstname;
   this.lastName = Auth.user.lastname;
-  this.role = Auth.user.role;
   this.currentPage = currentPage;
 }
-SideMenu({this.firstName, this.lastName, this.role});
+SideMenu({this.firstName, this.lastName});
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +37,7 @@ SideMenu({this.firstName, this.lastName, this.role});
                       child: Image.asset('assets/images/Icons.jpg'),
                     ),
                     Text(
-                      '$firstName \n$lastName \n$role',
+                      '$firstName \n$lastName',
                       textAlign: TextAlign.left,
                       style: TextStyle(color: Colors.black, fontSize: 20),
                     ),
@@ -51,31 +50,13 @@ SideMenu({this.firstName, this.lastName, this.role});
             ),
             ListTile(
               leading: Icon(Icons.home),
-              title: Text('จัดการคลังสินค้า',style: kContentTextStyle,),
+              title: Text('หน้าหลัก',style: kContentTextStyle,),
               onTap: (){
-                if(currentPage=='จัดการคลังสินค้า'){
+                if(currentPage=='หน้าหลัก'){
                   Navigator.pop(context);
                 }else{
-                  Navigator.pushReplacementNamed(context, '/stock',);
+                  Navigator.pushReplacementNamed(context, '/search',);
                 }
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.table_chart),
-              title: Text('ตารางรับซื้อ',style: kContentTextStyle,),
-              onTap: (){
-                if(currentPage=='ตารางรับซื้อ'){
-                  Navigator.pop(context);
-                }else{
-                  Navigator.pushReplacementNamed(context, '/stock/productPriceTable');
-                }
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.shopping_cart),
-              title: Text('ยืนยันการจ่ายเงินจากลูกค้า',style: kContentTextStyle),
-              onTap: (){
-               print('ยืนยันการจ่ายเงินจากลูกค้า');
               },
             ),
             ListTile(
@@ -85,27 +66,11 @@ SideMenu({this.firstName, this.lastName, this.role});
                 if(currentPage=='โปรไฟล์ของฉัน'){
                   Navigator.pop(context);
                 }else{
-                  Navigator.pushReplacementNamed(context, '/profile',);
+                  // Navigator.pushReplacementNamed(context, '/profile',);
                 }
 
               },
             ),
-            // ListTile(
-            //   leading: Icon(Icons.build),
-            //   title: Text('StatusWithFarmer',style: kContentTextStyle),
-            //   onTap: (){
-            //     Navigator.pushNamed(context, '/stock/stockDashboard/farmDetail/SellingList/statusWithFarmer');
-            //     print('StatusWithFarmer(DEMO)');
-            //   },
-            // ),
-            // ListTile(
-            //   leading: Icon(Icons.build),
-            //   title: Text('sellingProductPage',style: kContentTextStyle),
-            //   onTap: (){
-            //     Navigator.pushNamed(context, '/stock/stockDashboard/farmDetail/SellingList');
-            //     print('sellingProductPage');
-            //   },
-            // ),
             ListTile(
               leading: Icon(Icons.exit_to_app),
               title: Text('ออกจากระบบ',style: kContentTextStyle),
