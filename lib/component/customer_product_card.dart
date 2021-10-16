@@ -35,6 +35,9 @@ class CustomerProductCard extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     return InkWell(
+      onTap: (){
+        print('productName : $productName');
+      },
       child: Container(
         margin: EdgeInsets.all(8),
         decoration: BoxDecoration(

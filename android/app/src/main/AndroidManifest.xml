@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.pinto_customer_flutter">
    <application
-        android:label="pinto_customer_flutter"
+        android:label="pinto customer"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
