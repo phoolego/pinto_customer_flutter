@@ -17,6 +17,11 @@ class HomePage extends StatelessWidget {
             textAlign: TextAlign.left,
             style: kAppbarTextStyle,
           ),
+          actions: [
+            IconButton(icon: Icon(Icons.search), onPressed: (){
+              
+            },)
+          ],
         ),
         body: SafeArea(
           child: SingleChildScrollView(
