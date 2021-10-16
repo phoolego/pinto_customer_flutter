@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pinto_customer_flutter/model/user.dart';
 import 'package:pinto_customer_flutter/screen/auth/login.dart';
 import 'package:pinto_customer_flutter/service/auth.dart';
-import 'package:pinto_customer_flutter/screen/search_page.dart';
+import 'package:pinto_customer_flutter/screen/homepage.dart';
 
 class AuthController extends StatefulWidget {
   const AuthController({Key? key}) : super(key: key);
@@ -26,7 +26,7 @@ class _AuthControllerState extends State<AuthController> {
           if(user!.userId==0){
             return const Login();
           }else{
-            return Search();
+            return HomePage();
           }
         }
       },
