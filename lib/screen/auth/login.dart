@@ -40,120 +40,120 @@ class _LoginState extends State<Login> {
         child: _loading
             ? const Center(child: Text('กำลังลงชื่อเข้าใช้'))
             : SingleChildScrollView(
-          child: Form(
-            key: _formKey,
-            child: Container(
-              padding: EdgeInsets.all(20),
-              child: Column(
-                children: [
-                  Column(
-                    children: [
-                      Container(
-                        width: 200,
-                        height: 200,
-                        child: Image.asset('assets/images/Icons.jpg'),
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                        ],
-                      )
-                    ],
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'ลงชื่อเข้าใช้',
-                        style: kLoginHeadingTextStyle,
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(3),
-                        child: TextFormField(
-                          decoration: const InputDecoration(
-                            hintText: 'อีเมล',
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10),
+                child: Form(
+                  key: _formKey,
+                  child: Container(
+                    padding: EdgeInsets.all(20),
+                    child: Column(
+                      children: [
+                        Column(
+                          children: [
+                            Container(
+                              width: 200,
+                              height: 200,
+                              child: Image.asset('assets/images/Icons.jpg'),
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [],
+                            )
+                          ],
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'ลงชื่อเข้าใช้',
+                              style: kLoginHeadingTextStyle,
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(3),
+                              child: TextFormField(
+                                decoration: const InputDecoration(
+                                  hintText: 'อีเมล',
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(10),
+                                    ),
+                                  ),
+                                ),
+                                validator: (String? value) {
+                                  if (value!.isEmpty) {
+                                    return 'กรุณากรอกอีเมล';
+                                  } else {
+                                    return null;
+                                  }
+                                },
+                                onChanged: (val) {
+                                  setState(() {
+                                    email = val;
+                                  });
+                                },
                               ),
                             ),
-                          ),
-                          validator: (String? value) {
-                            if (value!.isEmpty) {
-                              return 'กรุณากรอกอีเมล';
-                            } else {
-                              return null;
-                            }
-                          },
-                          onChanged: (val) {
-                            setState(() {
-                              email = val;
-                            });
-                          },
-                        ),
-                      ),
-                      SizedBox(height: 10),
-                      Padding(
-                        padding: EdgeInsets.all(3),
-                        child: TextFormField(
-                          obscureText: true,
-                          decoration: const InputDecoration(
-                            hintText: 'รหัสผ่าน',
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10),
+                            SizedBox(height: 10),
+                            Padding(
+                              padding: EdgeInsets.all(3),
+                              child: TextFormField(
+                                obscureText: true,
+                                decoration: const InputDecoration(
+                                  hintText: 'รหัสผ่าน',
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(10),
+                                    ),
+                                  ),
+                                ),
+                                validator: (String? value) {
+                                  if (value!.isEmpty) {
+                                    // validate password must longer than 6 character
+                                    return 'กรุณากรอกรหัสผ่าน';
+                                  } else {
+                                    return null;
+                                  }
+                                },
+                                onChanged: (val) {
+                                  setState(() {
+                                    password = val;
+                                  });
+                                },
                               ),
                             ),
-                          ),
-                          validator: (String? value) {
-                            if (value!.isEmpty) {
-                              // validate password must longer than 6 character
-                              return 'กรุณากรอกรหัสผ่าน';
-                            } else {
-                              return null;
-                            }
-                          },
-                          onChanged: (val) {
-                            setState(() {
-                              password = val;
-                            });
-                          },
+                          ],
                         ),
-                      ),
-                    ],
+                        Column(
+                          children: [
+                            Text(
+                              errorMessage,
+                              style: kStatusNotCompleteTextColor,
+                            ),
+                            PintoButton(
+                                width: screenWidth * 0.4,
+                                label: 'เข้าสู่ระบบ',
+                                function: () async {
+                                  if (_formKey.currentState!.validate()) {
+                                    await _login(context);
+                                  }
+                                },
+                                buttonColor: deepGreen),
+                            SizedBox(height: 10),
+                            PintoButton.blackLabel(
+                                label: 'สร้างบัญชี',
+                                function: () {
+                                  Navigator.pushNamed(context, '/register');
+                                },
+                                buttonColor: Colors.white12),
+                            SizedBox(height: 10),
+                          ],
+                        )
+                      ],
+                    ),
                   ),
-                  Column(
-                    children: [
-                      Text(errorMessage,style: kStatusNotCompleteTextColor,),
-                      PintoButton(
-                          width: screenWidth * 0.4,
-                          label: 'เข้าสู่ระบบ',
-                          function: () async {
-                            if (_formKey.currentState!.validate()) {
-                              await _login(context);
-                            }
-                          },
-                          buttonColor: deepBlue),
-                      SizedBox(height: 10),
-                      PintoButton(
-                          width: screenWidth * 0.4,
-                          label: 'สร้างบัญชี',
-                          function: () async {
-                            // Navigator.pushNamed(context, '/register');
-                            //TODO :register page
-                          },
-                          buttonColor: lightBlue),
-                      SizedBox(height: 10),
-                    ],
-                  )
-                ],
+                ),
               ),
-            ),
-          ),
-        ),
       ),
     );
   }
