@@ -28,27 +28,32 @@ class _HomePageState extends State<HomePage> {
               : Container(
                   padding: EdgeInsets.only(bottom: 10),
                   child: TextField(
+                    style: kContentTextWhite,
                     decoration: InputDecoration(
-                        hintText: 'ค้นหา', hintStyle: kContentTextWhite),
+                      hintText: 'ค้นหา',
+                      hintStyle: kContentTextWhite,
+                      //fillColor: Colors.white
+                    ),
                   ),
                 ),
           actions: [
-            !isSearch ?
-            IconButton(
-              icon: Icon(Icons.search),
-              onPressed: () {
-                setState(() {
-                  this.isSearch = !this.isSearch;
-                });
-              },
-            ) :  IconButton(
-              icon: Icon(Icons.close),
-              onPressed: () {
-                setState(() {
-                  this.isSearch = !this.isSearch;
-                });
-              },
-            )
+            !isSearch
+                ? IconButton(
+                    icon: Icon(Icons.search),
+                    onPressed: () {
+                      setState(() {
+                        this.isSearch = !this.isSearch;
+                      });
+                    },
+                  )
+                : IconButton(
+                    icon: Icon(Icons.close),
+                    onPressed: () {
+                      setState(() {
+                        this.isSearch = !this.isSearch;
+                      });
+                    },
+                  )
           ],
         ),
         body: SafeArea(
