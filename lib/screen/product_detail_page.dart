@@ -23,10 +23,34 @@ class ProductDetailPage extends StatefulWidget {
 }
 
 class _ProductDetailPageState extends State<ProductDetailPage> {
+  String statusText = '';
+  var statusTextStyle;
+  String buttonText = '';
+  var buttonColor;
+  void checkStatus(int statusNumber) {
+    if (statusNumber == 1) {
+      statusText = 'สินค้าต้องสั่งจอง';
+      statusTextStyle = kStatusWaitingTextColor;
+      buttonText = 'สั่งจอง';
+      buttonColor = waitingDeepYellow;
+      print(statusNumber);
+      print(statusText);
+    } else if (statusNumber == 2) {
+      statusText = 'สินค้าพร้อมส่ง';
+      statusTextStyle = kStatusCompleteTextColor;
+      buttonText = 'สั่งซื้อ';
+      buttonColor = deepGreen;
+      print(statusNumber);
+      print(statusText);
+    } else
+      (print('something error'));
+  }
+
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
+    checkStatus(widget.status);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: deepGreen,
@@ -98,9 +122,10 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                           ),
                           Container(
                               padding:
-                                  EdgeInsets.only(right: screenWidth * 0.05),
+                                  EdgeInsets.only(right: screenWidth * 0.015),
                               child: Text(
-                                widget.status.toString(),
+                                statusText,
+                                style: statusTextStyle,
                                 textAlign: TextAlign.right,
                               ))
                         ],
@@ -121,14 +146,15 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                       ),
                       SizedBox(
                         height: screenWidth * 0.2,
+                        child: Text('สถานะจะเหลือไว้อันเดียวดีไหม',style: kStatusNotCompleteTextColor,),
                       ),
                       Text(
                         'ราคา:  ${widget.price} บาท/${widget.unit}',
                         style: kContentTextBlack,
                       ),
                       Text(
-                        'สถานะ: ${widget.status}',
-                        style: kContentTextBlack,
+                        statusText,
+                        style: statusTextStyle,
                       ),
                       SizedBox(
                         height: screenHeight * 0.1,
@@ -137,17 +163,19 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           PintoButton.custom(
-                              width: screenWidth*0.3,
-                              label: 'สั่งซื้อ',
-                              function: () {},
-                              buttonColor: deepGreen,
-                              textStyle: kContentTextWhite,),
+                            width: screenWidth * 0.3,
+                            label: buttonText,
+                            function: () {},
+                            buttonColor: buttonColor,
+                            textStyle: kContentTextWhite,
+                          ),
                           PintoButton.custom(
-                            width: screenWidth*0.3,
+                            width: screenWidth * 0.3,
                             label: 'ใส่ตะกร้า',
                             function: () {},
                             buttonColor: lightBlack,
-                            textStyle: kContentTextWhite,)
+                            textStyle: kContentTextWhite,
+                          )
                         ],
                       ),
                       SizedBox(
