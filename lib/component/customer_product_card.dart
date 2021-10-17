@@ -2,32 +2,42 @@ import 'package:flutter/material.dart';
 import 'package:pinto_customer_flutter/constant.dart';
 
 class CustomerProductCard extends StatelessWidget {
-
   String productName = '';
   int statusNumber = 0;
   String statusText = 'มีข้อผผิดพลาด';
   TextStyle statusTextStyle = kStatusNotCompleteTextColor;
   String buttonText = '';
   String farmName = '';
+  int productId;
+  var functionCard;
+  var functionBasket;
+  var functionOrdering;
 
-  CustomerProductCard({required this.productName,required this.statusNumber, required this.farmName});
+  CustomerProductCard(
+      {required this.productId,
+      required this.productName,
+      required this.statusNumber,
+      required this.farmName,
+      required this.functionCard,
+      required this.functionBasket,
+      required this.functionOrdering});
+  //CustomerProductCard.withImage({required this.productName,required this.statusNumber, required this.farmName});
 
-  void checkStatus(int statusNumber){
-    if(statusNumber == 1){
+  void checkStatus(int statusNumber) {
+    if (statusNumber == 1) {
       statusText = 'สินค้าต้องสั่งจอง';
       statusTextStyle = kStatusWaitingTextColor;
       buttonText = 'สั่งจอง';
       print(statusNumber);
       print(statusText);
-    }else if(statusNumber == 2){
+    } else if (statusNumber == 2) {
       statusText = 'สินค้าพร้อมส่ง';
       statusTextStyle = kStatusCompleteTextColor;
       buttonText = 'สั่งซื้อ';
       print(statusNumber);
       print(statusText);
-    }else(
-        print('something error')
-    );
+    } else
+      (print('something error'));
   }
 
   @override
@@ -36,9 +46,7 @@ class CustomerProductCard extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     return InkWell(
-      onTap: (){
-        print('productName : $productName');
-      },
+      onTap: functionCard,
       child: Container(
         margin: EdgeInsets.all(8),
         decoration: BoxDecoration(
@@ -91,7 +99,7 @@ class CustomerProductCard extends StatelessWidget {
                       'ใส่ตะกร้า',
                       style: kContentTextBlack,
                     ),
-                    onPressed: () {/* ... */},
+                    onPressed: functionBasket,
                   ),
                   const SizedBox(width: 8),
                   TextButton(
@@ -99,7 +107,7 @@ class CustomerProductCard extends StatelessWidget {
                       buttonText,
                       style: kContentTextBlack,
                     ),
-                    onPressed: () {/* ... */},
+                    onPressed: functionOrdering,
                   ),
                   const SizedBox(width: 8),
                 ],

@@ -20,6 +20,20 @@ const kContentTextBlack = TextStyle(
   fontSize: 16.0,
   color: deepBlack,
 );
+
+//BoxDecoration
+var kCardDecoration = BoxDecoration(
+  borderRadius: BorderRadius.circular(8.0),
+  color: Colors.white,
+  boxShadow: [
+    BoxShadow(
+      color: mediumGrayBackground,
+      blurRadius: 2.0,
+      spreadRadius: 0.0,
+      offset: Offset(2.0, 2.0), // shadow direction: bottom right
+    )
+  ],
+);
 //status
 const kStatusCompleteTextColor = TextStyle(fontFamily: 'Prompt', fontSize: 16.0, color: successGreen);
 const kStatusWaitingTextColor = TextStyle(fontFamily: 'Prompt', fontSize: 16.0, color: waitingDeepYellow);

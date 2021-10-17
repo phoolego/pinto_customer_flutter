@@ -23,6 +23,13 @@ class PintoButton extends StatelessWidget {
         required this.buttonColor,
         this.textStyle=buttonBlackTextStyle});
 
+  PintoButton.custom(
+      {required  this.width,
+        required this.label,
+        required this.function,
+        required this.buttonColor,
+        required this.textStyle});
+
   @override
   Widget build(BuildContext context) {
     return Container(
