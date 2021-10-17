@@ -90,7 +90,7 @@ class _HomePageState extends State<HomePage> {
                     productId: 2,
                     productName: 'เห็ด',
                     statusNumber: 2,
-                    farmName: 'แดง นักสู้',
+                    farmName: 'เขียว นักซิ่ง',
                     functionBasket: () {},
                     functionCard: (){
                       Navigator.push(
@@ -99,9 +99,9 @@ class _HomePageState extends State<HomePage> {
                               builder: (context) => ProductDetailPage(
                                 productId: 1,
                                 productName: 'เห็ด',
-                                farmName: 'แดงนักสู้',
+                                farmName: 'เขียว นักซิ่ง',
                                 status: 2,
-                                price: 20.0,
+                                price: 10.0,
                                 unit: 'กก',
                               )
                           )
