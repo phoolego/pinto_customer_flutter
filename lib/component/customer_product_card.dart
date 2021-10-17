@@ -8,8 +8,9 @@ class CustomerProductCard extends StatelessWidget {
   String statusText = 'มีข้อผผิดพลาด';
   TextStyle statusTextStyle = kStatusNotCompleteTextColor;
   String buttonText = '';
+  String farmName = '';
 
-  CustomerProductCard({required this.productName,required this.statusNumber});
+  CustomerProductCard({required this.productName,required this.statusNumber, required this.farmName});
 
   void checkStatus(int statusNumber){
     if(statusNumber == 1){
@@ -57,9 +58,18 @@ class CustomerProductCard extends StatelessWidget {
           child: Column(
             children: [
               ListTile(
-                title: Text(
-                  productName,
-                  style: kHeadingTextStyle,
+                title: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      productName,
+                      style: kHeadingTextStyle,
+                    ),
+                    Text(
+                      farmName,
+                      style: kContentTextBlack,
+                    ),
+                  ],
                 ),
                 subtitle: Text(
                   statusText,

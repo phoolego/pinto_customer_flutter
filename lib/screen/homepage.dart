@@ -63,29 +63,17 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 children: [
                   CustomerProductCard(
-                    productName: 'ผักกาดขาว',
-                    statusNumber: 1,
-                  ),
+                      productName: 'ผักกาดขาว',
+                      statusNumber: 1,
+                      farmName: 'บางกะเจ้าฟาร์ม'),
                   CustomerProductCard(
-                    productName: 'เห็ดบางกะเจ้า',
-                    statusNumber: 2,
-                  ),
+                      productName: 'เห็ดบางกะเจ้า',
+                      statusNumber: 2,
+                      farmName: 'สมหญิงฟาร์ม'),
                   CustomerProductCard(
-                    productName: 'ผักกาดขาว',
-                    statusNumber: 1,
-                  ),
-                  CustomerProductCard(
-                    productName: 'เห็ดบางกะเจ้า',
-                    statusNumber: 2,
-                  ),
-                  CustomerProductCard(
-                    productName: 'ผักกาดขาว',
-                    statusNumber: 1,
-                  ),
-                  CustomerProductCard(
-                    productName: 'เห็ดบางกะเจ้า',
-                    statusNumber: 2,
-                  ),
+                      productName: 'ข่าอ่อน',
+                      statusNumber: 1,
+                      farmName: 'เก่งกล้าสามารถ ฟาร์ม'),
                 ],
               ),
             ),
