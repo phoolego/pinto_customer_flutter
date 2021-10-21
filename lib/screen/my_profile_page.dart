@@ -1,3 +1,4 @@
+// import 'dart:html';
 import 'package:flutter/material.dart';
 import 'package:pinto_customer_flutter/constant.dart';
 import 'package:pinto_customer_flutter/component/side_menu.dart';
@@ -25,31 +26,45 @@ class MyProfilePage extends StatelessWidget {
             children: [
               Container(
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                      padding: EdgeInsets.only(right: 10),
-                      width: 90,
-                      height: 90,
-                      child: Image.asset('assets/images/Icons.jpg'),
+                    Column(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.only(right: 10),
+                          width: 90,
+                          height: 90,
+                          child: Image.asset('assets/images/Icons.jpg'),
+                        ),
+                      ],
                     ),
-                    Container(
-                      width: 0.48 * screenWidth,
-                      child: Text(
-                        'firstname \nlastname \ncustomer',
-                        // '${Auth.user.firstname} \n${Auth.user.lastname} \n${Auth.user.role}',
-                        textAlign: TextAlign.left,
-                        style: kHeadingTextStyle,
-                      ),
+                    Column(
+                      children: [
+                        Container(
+                          width: 0.48 * screenWidth,
+                          child: Text(
+                            'firstname \nlastname \ncustomer',
+                            // '${Auth.user.firstname} \n${Auth.user.lastname} \n${Auth.user.role}',
+                            textAlign: TextAlign.left,
+                            style: kHeadingTextStyle,
+                          ),
+                        ),
+                      ],
                     ),
-                    IconButton(
-                      onPressed: () {
-                        print('${Auth.user.firstname} เข้าสู่หน้าแก้ไขโปรไฟล์ของฉัน');
-                        Navigator.defaultRouteName;
-                        //TODO:My edit profile page
-                      },
-                      icon: Icon(Icons.edit),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        IconButton(
+                          onPressed: () {
+                            print('${Auth.user.firstname} เข้าสู่หน้าแก้ไขโปรไฟล์ของฉัน');
+                            Navigator.defaultRouteName;
+                            //TODO:My edit profile page
+                          },
+                          icon: Icon(Icons.edit),
+                        ),
+                      ],
                     ),
                   ],
                 ),
