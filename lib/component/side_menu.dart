@@ -64,12 +64,12 @@ SideMenu({this.firstName, this.lastName});
             ),
             ListTile(
               leading: Icon(Icons.account_circle),
-              title: Text('โปรไฟล์ของฉัน',style: kContentTextBlack),
+              title: Text('ตั้งค่าบัญชี',style: kContentTextBlack),
               onTap: (){
-                if(currentPage=='โปรไฟล์ของฉัน'){
+                if(currentPage=='ตั้งค่าบัญชี'){
                   Navigator.pop(context);
                 }else{
-                  // Navigator.pushReplacementNamed(context, '/profile',);
+                  Navigator.pushReplacementNamed(context, '/profile',);
                 }
 
               },
