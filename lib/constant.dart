@@ -51,13 +51,6 @@ const kNormalErrorTextStyle = TextStyle(fontFamily: 'Prompt', fontSize: 16.0, co
 const buttonWhiteTextStyle = TextStyle(fontFamily: 'Prompt', fontSize: 14.0, color: deepWhite);
 const buttonBlackTextStyle = TextStyle(fontFamily: 'Prompt', fontSize: 14.0, color: deepBlack);
 
-//Farm's color
-const Color deepOrange = Color(0xFFE19F00);
-const Color lightOrange = Color(0xFFF3D998);
-//Admin's color
-const Color deepBlue = Color(0xFF395066);
-const Color mediumBlue = Color(0xFF48637D);
-const Color lightBlue = Color(0xFF527E9B);
 //Customer's color
 const Color deepGreen = Color(0xFF5C8C52);
 const Color lightGreen = Color(0xFF84B67A);

@@ -21,7 +21,7 @@ class StatusCard extends StatelessWidget {
         margin: EdgeInsets.all(3),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(10)),
-          color: mediumBlue,
+          color: lightGreen,
         ),
         child: Column(
           children: [
