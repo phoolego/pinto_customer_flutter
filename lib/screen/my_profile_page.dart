@@ -29,42 +29,28 @@ class MyProfilePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Column(
-                      children: [
-                        Container(
-                          padding: EdgeInsets.only(right: 10),
-                          width: 90,
-                          height: 90,
-                          child: Image.asset('assets/images/Icons.jpg'),
-                        ),
-                      ],
+                    Container(
+                      padding: EdgeInsets.only(right: 10),
+                      width: 90,
+                      height: 90,
+                      child: Image.asset('assets/images/Icons.jpg'),
                     ),
-                    Column(
-                      children: [
-                        Container(
-                          width: 0.48 * screenWidth,
-                          child: Text(
-                            'firstname \nlastname \ncustomer',
-                            // '${Auth.user.firstname} \n${Auth.user.lastname} \n${Auth.user.role}',
-                            textAlign: TextAlign.left,
-                            style: kHeadingTextStyle,
-                          ),
-                        ),
-                      ],
+                    Container(
+                      width: 0.48 * screenWidth,
+                      child: Text(
+                        'firstname \nlastname \ncustomer',
+                        // '${Auth.user.firstname} \n${Auth.user.lastname} \n${Auth.user.role}',
+                        textAlign: TextAlign.left,
+                        style: kHeadingTextStyle,
+                      ),
                     ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        IconButton(
-                          onPressed: () {
-                            print('${Auth.user.firstname} เข้าสู่หน้าแก้ไขโปรไฟล์ของฉัน');
-                            Navigator.defaultRouteName;
-                            //TODO:My edit profile page
-                          },
-                          icon: Icon(Icons.edit),
-                        ),
-                      ],
+                    IconButton(
+                      onPressed: () {
+                        print('${Auth.user.firstname} เข้าสู่หน้าแก้ไขโปรไฟล์ของฉัน');
+                        Navigator.defaultRouteName;
+                        //TODO:My edit profile page
+                      },
+                      icon: Icon(Icons.edit),
                     ),
                   ],
                 ),
