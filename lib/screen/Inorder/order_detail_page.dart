@@ -1,19 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:pinto_customer_flutter/component/pinto_button.dart';
 import 'package:pinto_customer_flutter/constant.dart';
+import 'package:pinto_customer_flutter/model/order.dart';
 
-class AddressPage extends StatelessWidget {
+class OrderDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
-    String defaultAddress = 'ค่าเริ่มต้น';
+    // Order order;
+    int orderId = 123456;
+    String status = 'status';
+    double priceOrder = 300;
+    double shipping =20;
+    double total = 320;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: deepGreen,
         title: Text(
-          'ที่อยู่ที่บันทึกไว้',
+          'รายการสั่งซื้อที่ $orderId',
           style: kAppbarTextStyle,
+        ),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back_ios),
         ),
       ),
       body: SafeArea(
@@ -22,28 +33,28 @@ class AddressPage extends StatelessWidget {
             Expanded(
               child: SingleChildScrollView(
                 child: Container(
-                  padding:
-                      EdgeInsets.fromLTRB(30, 20, 30, 20),
+                  padding: EdgeInsets.fromLTRB(30, 20, 30, 20),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
-                        //one adress one container
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'บ้าน [$defaultAddress]',
+                              'สถานะสินค้า: $status',
                               textAlign: TextAlign.left,
-                              style: kHeadingTextStyle,
+                              style: kContentTextBlackBold,
                             ),
                             Text(
+                              //date,time,detail of status
                               'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum arcu eget '
                               'nulla elementum, scelerisque elementum ligula porttitor. In ac convallis augue. Etiam '
                               'ac mauris viverra diam ultricies dapibus a a sapien.',
                               textAlign: TextAlign.left,
                               style: kContentTextBlack,
-                              maxLines: 3,
+                              maxLines: 5,
                               softWrap: true,
                             ),
                           ],
@@ -55,17 +66,17 @@ class AddressPage extends StatelessWidget {
                         color: Colors.black12,
                       ),
                       Container(
-                        //one adress one container
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'หอพัก',
+                              'ที่อยู่จัดส่ง',
                               textAlign: TextAlign.left,
-                              style: kHeadingTextStyle,
+                              style: kContentTextBlackBold,
                             ),
                             Text(
+                              //date,time,detail of status
                               'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum arcu eget '
                               'nulla elementum, scelerisque elementum ligula porttitor. In ac convallis augue. Etiam '
                               'ac mauris viverra diam ultricies dapibus a a sapien.',
@@ -73,6 +84,54 @@ class AddressPage extends StatelessWidget {
                               style: kContentTextBlack,
                               maxLines: 3,
                               softWrap: true,
+                            ),
+                          ],
+                        ),
+                      ),
+                      const Divider(
+                        height: 20,
+                        thickness: 1,
+                        color: Colors.black12,
+                      ),
+                      // todo ทำการ์ดสินค้า
+                      Container(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'รวมราคาสินค้า',
+                                  style: kContentTextBlack,
+                                ),
+                                Text(
+                                  'ค่าส่ง',
+                                  style: kContentTextBlack,
+                                ),
+                                Text(
+                                  'รวมราคาที่ต้องชำระ',
+                                  style: kContentTextBlackBold,
+                                ),
+                              ],
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Text(
+                                  '$priceOrder',
+                                  style: kContentTextBlack,
+                                ),
+                                Text(
+                                  '$shipping',
+                                  style: kContentTextBlack,
+                                ),
+                                Text(
+                                  '$total',
+                                  style: kContentTextBlackBold,
+                                ),
+                              ],
                             ),
                           ],
                         ),
@@ -83,79 +142,34 @@ class AddressPage extends StatelessWidget {
                         color: Colors.black12,
                       ),
                       Container(
-                        //one adress one container
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'หอพัก',
+                              'ช่องทางชำระเงิน', //$transition type
                               textAlign: TextAlign.left,
-                              style: kHeadingTextStyle,
+                              style: kContentTextBlackBold,
                             ),
                             Text(
-                              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum arcu eget '
-                              'nulla elementum, scelerisque elementum ligula porttitor. In ac convallis augue. Etiam '
-                              'ac mauris viverra diam ultricies dapibus a a sapien.',
+                              //date,time,detail of status
+                              'โอน SCB xx-xxx-xxx-201',
                               textAlign: TextAlign.left,
                               style: kContentTextBlack,
                               maxLines: 3,
                               softWrap: true,
                             ),
-                          ],
-                        ),
-                      ),
-                      const Divider(
-                        height: 20,
-                        thickness: 1,
-                        color: Colors.black12,
-                      ),
-                      Container(
-                        //one adress one container
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'หอพัก',
-                              textAlign: TextAlign.left,
-                              style: kHeadingTextStyle,
-                            ),
-                            Text(
-                              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum arcu eget '
-                              'nulla elementum, scelerisque elementum ligula porttitor. In ac convallis augue. Etiam '
-                              'ac mauris viverra diam ultricies dapibus a a sapien.',
-                              textAlign: TextAlign.left,
-                              style: kContentTextBlack,
-                              maxLines: 3,
-                              softWrap: true,
+                            Container(
+                              padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+                              child: Image.asset('assets/images/Icons.jpg'),
                             ),
                           ],
                         ),
-                      ),
-                      const Divider(
-                        height: 20,
-                        thickness: 1,
-                        color: Colors.black12,
                       ),
                     ],
                   ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Center(
-              child: PintoButton(
-                  width: 200,
-                  label: 'เพิ่มที่อยูใหม่่',
-                  buttonColor: lightGreen,function: () async{
-              }
-              ),
-            ),
-            SizedBox(
-              height: 50,
             ),
           ],
         ),

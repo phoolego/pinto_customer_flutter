@@ -75,6 +75,13 @@ SideMenu({this.firstName, this.lastName});
               },
             ),
             ListTile(
+              leading: Icon(Icons.account_circle),
+              title: Text('For dev order detail',style: kContentTextBlack),
+              onTap: (){
+                  Navigator.pushReplacementNamed(context, '/inorder/detail',);
+              },
+            ),
+            ListTile(
               leading: Icon(Icons.exit_to_app),
               title: Text('ออกจากระบบ',style: kContentTextBlack),
               onTap: ()async {
