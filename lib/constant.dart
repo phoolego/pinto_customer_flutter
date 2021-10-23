@@ -39,7 +39,7 @@ const kStatusCompleteTextColor = TextStyle(fontFamily: 'Prompt', fontSize: 16.0,
 const kStatusWaitingTextColor = TextStyle(fontFamily: 'Prompt', fontSize: 16.0, color: waitingDeepYellow);
 const kStatusNotCompleteTextColor = TextStyle(fontFamily: 'Prompt', fontSize: 16.0, color: notYetDeepRed);
 
-const kAppbarTextStyle = TextStyle(fontFamily: 'Prompt', fontSize: 18.0, color: deepWhite);
+const kAppbarTextStyle = TextStyle(fontFamily: 'Prompt', fontSize: 20.0, color: deepWhite);
 
 const kLoginHeadingTextStyle = TextStyle(
   fontFamily: 'Prompt',
