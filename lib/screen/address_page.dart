@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pinto_customer_flutter/component/pinto_button.dart';
 import 'package:pinto_customer_flutter/constant.dart';
 
 class AddressPage extends StatelessWidget {
@@ -16,47 +17,175 @@ class AddressPage extends StatelessWidget {
         ),
       ),
       body: SafeArea(
-        child: Container(
-          padding: EdgeInsets.fromLTRB(0.1 * screenWidth, 0.02 * screenHeight, 0.1 * screenWidth, 0.02 * screenHeight),
-          // decoration: BoxDecoration(color: deepWhite),
-          child: Column(
-            children: [
-              Container(
-                child: Row(
-                  children: [
-                    Container(
-                      width: 0.8 * screenWidth,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'บ้าน [$defaultAddress]',
-                            textAlign: TextAlign.left,
-                            style: kHeadingTextStyle,
-                          ),
-                          Text(
-                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum arcu eget '
-                                'nulla elementum, scelerisque elementum ligula porttitor. In ac convallis augue. Etiam '
-                                'ac mauris viverra diam ultricies dapibus a a sapien.',
-                            textAlign: TextAlign.left,
-                            style: kContentTextBlack,
-                            maxLines: 3,
-                            softWrap: true,
-                          ),
-                        ],
+        child: Column(
+          children: [
+            Expanded(
+              child: SingleChildScrollView(
+                child: Container(
+                  padding:
+                      EdgeInsets.fromLTRB(30, 20, 30, 20),
+                  child: Column(
+                    children: [
+                      Container(
+                        //one adress one container
+                        child: Row(
+                          children: [
+                            Container(
+                              width: screenWidth-60,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'บ้าน [$defaultAddress]',
+                                    textAlign: TextAlign.left,
+                                    style: kHeadingTextStyle,
+                                  ),
+                                  Text(
+                                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum arcu eget '
+                                    'nulla elementum, scelerisque elementum ligula porttitor. In ac convallis augue. Etiam '
+                                    'ac mauris viverra diam ultricies dapibus a a sapien.',
+                                    textAlign: TextAlign.left,
+                                    style: kContentTextBlack,
+                                    maxLines: 3,
+                                    softWrap: true,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                      const Divider(
+                        height: 20,
+                        thickness: 1,
+                        color: Colors.black12,
+                      ),
+                      Container(
+                        //one adress one container
+                        child: Row(
+                          children: [
+                            Container(
+                              width: screenWidth-60,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'หอพัก',
+                                    textAlign: TextAlign.left,
+                                    style: kHeadingTextStyle,
+                                  ),
+                                  Text(
+                                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum arcu eget '
+                                    'nulla elementum, scelerisque elementum ligula porttitor. In ac convallis augue. Etiam '
+                                    'ac mauris viverra diam ultricies dapibus a a sapien.',
+                                    textAlign: TextAlign.left,
+                                    style: kContentTextBlack,
+                                    maxLines: 3,
+                                    softWrap: true,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const Divider(
+                        height: 20,
+                        thickness: 1,
+                        color: Colors.black12,
+                      ),
+                      Container(
+                        //one adress one container
+                        child: Row(
+                          children: [
+                            Container(
+                              width: screenWidth-60,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'หอพัก',
+                                    textAlign: TextAlign.left,
+                                    style: kHeadingTextStyle,
+                                  ),
+                                  Text(
+                                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum arcu eget '
+                                    'nulla elementum, scelerisque elementum ligula porttitor. In ac convallis augue. Etiam '
+                                    'ac mauris viverra diam ultricies dapibus a a sapien.',
+                                    textAlign: TextAlign.left,
+                                    style: kContentTextBlack,
+                                    maxLines: 3,
+                                    softWrap: true,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const Divider(
+                        height: 20,
+                        thickness: 1,
+                        color: Colors.black12,
+                      ),
+                      Container(
+                        //one adress one container
+                        child: Row(
+                          children: [
+                            Container(
+                              width: screenWidth-60,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'หอพัก',
+                                    textAlign: TextAlign.left,
+                                    style: kHeadingTextStyle,
+                                  ),
+                                  Text(
+                                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum arcu eget '
+                                    'nulla elementum, scelerisque elementum ligula porttitor. In ac convallis augue. Etiam '
+                                    'ac mauris viverra diam ultricies dapibus a a sapien.',
+                                    textAlign: TextAlign.left,
+                                    style: kContentTextBlack,
+                                    maxLines: 3,
+                                    softWrap: true,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const Divider(
+                        height: 20,
+                        thickness: 1,
+                        color: Colors.black12,
+                      ),
+                    ],
+                  ),
                 ),
               ),
-              const Divider(
-                height: 20,
-                thickness: 1,
-                color: Colors.black12,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Center(
+              child: PintoButton(
+                  width: 200,
+                  label: 'เพิ่มที่อยูใหม่่',
+                  buttonColor: lightGreen,function: () async{
+              }
               ),
-            ],
-          ),
+            ),
+            SizedBox(
+              height: 50,
+            ),
+          ],
         ),
       ),
     );
