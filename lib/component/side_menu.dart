@@ -58,15 +58,15 @@ SideMenu({this.firstName, this.lastName});
                 if(currentPage=='หน้าหลัก'){
                   Navigator.pop(context);
                 }else{
-                  Navigator.pushReplacementNamed(context, '/search',);
+                  Navigator.pushReplacementNamed(context, '/home',);
                 }
               },
             ),
             ListTile(
               leading: Icon(Icons.account_circle),
-              title: Text('ตั้งค่าบัญชี',style: kContentTextBlack),
+              title: Text('จัดการบัญชี',style: kContentTextBlack),
               onTap: (){
-                if(currentPage=='ตั้งค่าบัญชี'){
+                if(currentPage=='จัดการบัญชี'){
                   Navigator.pop(context);
                 }else{
                   Navigator.pushReplacementNamed(context, '/profile',);
