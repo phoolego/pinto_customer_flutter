@@ -1,0 +1,38 @@
+import 'package:flutter/material.dart';
+import 'package:pinto_customer_flutter/constant.dart';
+
+class OrderHistoryPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: deepGreen,
+        title: Text(
+          'ประวัติการซื้อ',
+          style: kAppbarTextStyle,
+        ),
+      ),
+      body: SafeArea(
+        child: Column(
+          children: [
+            Expanded(
+              child: SingleChildScrollView(
+                child: Container(
+                  padding:
+                  EdgeInsets.fromLTRB(30, 20, 30, 20),
+                  child: Column(
+                    children: [
+                        // todo ทำการ์ดรายการสั่งซื้อ
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

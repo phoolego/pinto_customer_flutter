@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:pinto_customer_flutter/screen/Inorder/order_history_page.dart';
+import 'package:pinto_customer_flutter/screen/Inorder/order_paying_page.dart';
+import 'package:pinto_customer_flutter/screen/Inorder/order_pre_ordering_page.dart';
+import 'package:pinto_customer_flutter/screen/Inorder/order_receiving_page.dart';
+import 'package:pinto_customer_flutter/screen/Inorder/order_sending_page.dart';
+import 'package:pinto_customer_flutter/screen/address_page.dart';
 import 'package:pinto_customer_flutter/screen/auth/Register_page.dart';
 import 'package:pinto_customer_flutter/screen/auth/auth_controller.dart';
 import 'package:pinto_customer_flutter/screen/homepage.dart';
@@ -19,8 +25,15 @@ class MyApp extends StatelessWidget {
         '/login': (context) => Login(),
         '/register': (context) => RegisterPage(),
         '/home': (context) => HomePage(),
+        // '/home/ProductDetail' : (context) => ProductDetailPage(),
         '/profile': (context) => MyProfilePage(),
-       // '/home/ProductDetail' : (context) => ProductDetailPage(),
+        '/address': (context) => AddressPage(),
+        '/inorder/history': (context) => OrderHistoryPage(),
+        '/inorder/pre-ordering': (context) => OrderPreOrdering(),
+        '/inorder/paying': (context) => OrderPayingPage(),
+        '/inorder/sending': (context) => OrderSendingPage(),
+        '/inorder/receiving': (context) => OrderReceivingPage(),
+
 
       },
     );
