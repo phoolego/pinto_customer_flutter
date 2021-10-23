@@ -7,6 +7,7 @@ import 'package:pinto_customer_flutter/screen/Inorder/order_sending_page.dart';
 import 'package:pinto_customer_flutter/screen/address_page.dart';
 import 'package:pinto_customer_flutter/screen/auth/Register_page.dart';
 import 'package:pinto_customer_flutter/screen/auth/auth_controller.dart';
+import 'package:pinto_customer_flutter/screen/basket_page.dart';
 import 'package:pinto_customer_flutter/screen/homepage.dart';
 import 'package:pinto_customer_flutter/screen/auth/login.dart';
 import 'package:pinto_customer_flutter/screen/my_profile_page.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         // '/home/ProductDetail' : (context) => ProductDetailPage(),
         '/profile': (context) => MyProfilePage(),
         '/address': (context) => AddressPage(),
+        '/basket': (context) => BasketPage(),
         '/inorder/history': (context) => OrderHistoryPage(),
         '/inorder/pre-ordering': (context) => OrderPreOrdering(),
         '/inorder/paying': (context) => OrderPayingPage(),
