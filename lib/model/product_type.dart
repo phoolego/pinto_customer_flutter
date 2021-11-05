@@ -14,4 +14,6 @@ class ProductType {
     unit = jsonProductType['unit'];
     picture = jsonProductType['picture_of_product'];
   }
+
+  get productTypePicUrl => null;
 }

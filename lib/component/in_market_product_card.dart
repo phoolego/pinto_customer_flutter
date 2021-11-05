@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pinto_customer_flutter/constant.dart';
 
-class CustomerProductCard extends StatelessWidget {
+class InmarketProductCard extends StatelessWidget {
   String productName = '';
   int statusNumber = 0;
   String statusText = 'มีข้อผผิดพลาด';
@@ -13,7 +13,7 @@ class CustomerProductCard extends StatelessWidget {
   var functionBasket;
   var functionOrdering;
 
-  CustomerProductCard(
+  InmarketProductCard(
       {required this.productId,
       required this.productName,
       required this.statusNumber,

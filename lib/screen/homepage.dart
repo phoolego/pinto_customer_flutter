@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pinto_customer_flutter/constant.dart';
 import 'package:pinto_customer_flutter/component/side_menu.dart';
-import 'package:pinto_customer_flutter/component/customer_product_card.dart';
+import 'package:pinto_customer_flutter/component/in_market_product_card.dart';
 import 'package:pinto_customer_flutter/screen/product_detail_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -63,7 +63,7 @@ class _HomePageState extends State<HomePage> {
               padding: EdgeInsets.all(screenWidth * 0.03),
               child: Column(
                 children: [
-                  CustomerProductCard(
+                  InmarketProductCard(
                     productId: 1,
                     productName: 'ผักกาดขาว',
                     statusNumber: 1,
@@ -86,7 +86,7 @@ class _HomePageState extends State<HomePage> {
                     },
                     functionOrdering: () {},
                   ),
-                  CustomerProductCard(
+                  InmarketProductCard(
                     productId: 2,
                     productName: 'เห็ด',
                     statusNumber: 2,

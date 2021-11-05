@@ -78,7 +78,14 @@ SideMenu({this.firstName, this.lastName});
               leading: Icon(Icons.account_circle),
               title: Text('For dev order detail',style: kContentTextBlack),
               onTap: (){
-                  Navigator.pushReplacementNamed(context, '/inorder/detail',);
+                Navigator.pushReplacementNamed(context, '/inorder/detail',);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.account_circle),
+              title: Text('For dev basket',style: kContentTextBlack),
+              onTap: (){
+                Navigator.pushReplacementNamed(context, '/basket',);
               },
             ),
             ListTile(

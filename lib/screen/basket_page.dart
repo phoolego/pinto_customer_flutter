@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pinto_customer_flutter/component/in_basket_product_card.dart';
 import 'package:pinto_customer_flutter/constant.dart';
 
 class BasketPage extends StatelessWidget {
@@ -30,6 +31,7 @@ class BasketPage extends StatelessWidget {
                   child: Column(
                     children: [
                       // todo ทำการ์ดสินค้า
+                      InbasketProductCard(productName: 'ผักกาดขาว',function: (){},),
                     ],
                   ),
                 ),
