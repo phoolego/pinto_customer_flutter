@@ -9,7 +9,7 @@ class Auth {
 
   static Future<User> login(String? email,String? password) async {
     try {
-      var response = await Api.dio.post('/login-customer', //todo รอภู
+      var response = await Api.dio.post('/login-email',
           data:{'email':email,'password':password}
       );
       user = User(response.data);
@@ -37,11 +37,12 @@ class Auth {
     await _storage.delete(key: 'email');
     await _storage.delete(key: 'password');
   }
-  static Future<int> register(String username,String email,String password,String address,String contact) async {
+  static Future<int> register(String firstname,String lastname,String email,String password,String address,String contact) async {
     try {
-      var response = await Api.dio.post('/register-customer', //todo รอภู
+      var response = await Api.dio.post('/customer/register',
         data:{
-          'username':username,
+          'firstname':firstname,
+          'lastname':lastname,
           'email':email,
           'password':password,
           'address':address,

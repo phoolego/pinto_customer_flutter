@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pinto_customer_flutter/component/pinto_button.dart';
 import 'package:pinto_customer_flutter/constant.dart';
 import 'package:pinto_customer_flutter/component/pinto_text_field.dart';
+import 'package:pinto_customer_flutter/service/auth.dart';
 
 class RegisterPage extends StatefulWidget {
   @override
@@ -9,6 +10,13 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  String _firstname = '';
+  String _lastname = '';
+  String _email = '';
+  String _password = '';
+  String _address = '';
+  String _contact = '';
+  String _errorMessage = '';
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
@@ -16,7 +24,7 @@ class _RegisterPageState extends State<RegisterPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: deepGreen,
-        title: Text(
+        title: const Text(
           'ลงทะเบียนลูกค้า',
           style: kAppbarTextStyle,
         ),
@@ -26,9 +34,9 @@ class _RegisterPageState extends State<RegisterPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 child:
-                Text('ลงทะเบียน',style: kLoginHeadingTextStyle,),
+                const Text('ลงทะเบียน',style: kLoginHeadingTextStyle,),
               ),
               PintoTextFieldWithoutHintText(
                 label: 'อีเมล',
@@ -59,11 +67,18 @@ class _RegisterPageState extends State<RegisterPage> {
                 alignment: Alignment.center,
                 child: PintoButton(
                   label: 'ลงทะเบียน',function: (){
-                    Navigator.pushNamed(context, '/login');
-                    print('Register');
+                    try{
+                      Auth.register(_firstname,_lastname, _email, _password, _address, _contact);
+                      Navigator.pushNamed(context, '/');
+                    }catch(err){
+                      setState(() {
+                        _errorMessage = err.toString();
+                      });
+                    }
                 },buttonColor: deepGreen,
                 ),
               ),
+              Text(_errorMessage,style: const TextStyle(color: Colors.red),),
               SizedBox(height: screenHeight * 0.05,),
             ],
           ),

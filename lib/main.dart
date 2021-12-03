@@ -6,7 +6,7 @@ import 'package:pinto_customer_flutter/screen/Inorder/order_pre_ordering_page.da
 import 'package:pinto_customer_flutter/screen/Inorder/order_receiving_page.dart';
 import 'package:pinto_customer_flutter/screen/Inorder/order_sending_page.dart';
 import 'package:pinto_customer_flutter/screen/address_page.dart';
-import 'package:pinto_customer_flutter/screen/auth/Register_page.dart';
+import 'package:pinto_customer_flutter/screen/auth/register_page.dart';
 import 'package:pinto_customer_flutter/screen/auth/auth_controller.dart';
 import 'package:pinto_customer_flutter/screen/basket_page.dart';
 import 'package:pinto_customer_flutter/screen/homepage.dart';

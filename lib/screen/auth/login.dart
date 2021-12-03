@@ -24,7 +24,6 @@ class _LoginState extends State<Login> {
       await Auth.login(email, password);
       Navigator.pushReplacementNamed(context, '/');
     } catch (err) {
-      print(err);
       errorMessage = err.toString();
       setState(() {
         _loading = false;
@@ -43,34 +42,26 @@ class _LoginState extends State<Login> {
                 child: Form(
                   key: _formKey,
                   child: Container(
-                    padding: EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20),
                     child: Column(
                       children: [
-                        Column(
-                          children: [
-                            Container(
-                              width: 200,
-                              height: 200,
-                              child: Image.asset('assets/images/Icons.jpg'),
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [],
-                            )
-                          ],
+                        SizedBox(
+                          width: 200,
+                          height: 200,
+                          child: Image.asset('assets/images/Icons.jpg'),
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
+                            const Text(
                               'ลงชื่อเข้าใช้',
                               style: kLoginHeadingTextStyle,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                             Padding(
-                              padding: EdgeInsets.all(3),
+                              padding: const EdgeInsets.all(3),
                               child: TextFormField(
                                 decoration: const InputDecoration(
                                   hintText: 'อีเมล',
@@ -94,9 +85,9 @@ class _LoginState extends State<Login> {
                                 },
                               ),
                             ),
-                            SizedBox(height: 10),
+                            const SizedBox(height: 10),
                             Padding(
-                              padding: EdgeInsets.all(3),
+                              padding: const EdgeInsets.all(3),
                               child: TextFormField(
                                 obscureText: true,
                                 decoration: const InputDecoration(
@@ -139,14 +130,14 @@ class _LoginState extends State<Login> {
                                   }
                                 },
                                 buttonColor: deepGreen),
-                            SizedBox(height: 10),
+                            const SizedBox(height: 10),
                             PintoButton.blackLabel(
                                 label: 'สร้างบัญชี',
                                 function: () {
                                   Navigator.pushNamed(context, '/register');
                                 },
                                 buttonColor: Colors.white12),
-                            SizedBox(height: 10),
+                            const SizedBox(height: 10),
                           ],
                         )
                       ],
