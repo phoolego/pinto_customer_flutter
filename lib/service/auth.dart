@@ -46,10 +46,10 @@ class Auth {
           'email':email,
           'password':password,
           'address':address,
-          'contact':contact,
-          'role':'CUSTOMER'
+          'contact':contact
         }
       );
+
       return response.data['insertId'];
     } on DioError catch (err) {
       throw err.response!.data['message'];

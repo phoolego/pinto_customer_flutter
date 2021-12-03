@@ -3,13 +3,15 @@ import 'package:pinto_customer_flutter/constant.dart';
 
 class PintoTextFieldWithoutHintText extends StatelessWidget {
   String label = '';
+  String initValue = '';
+  bool isPassword = false;
   var validator;
   var onChanged;
   int? min;
   int? max;
 
   PintoTextFieldWithoutHintText(
-      {required this.label, this.validator, this.onChanged, this.max, this.min});
+      {required this.label, this.validator, this.onChanged, this.max, this.min, this.initValue='', this.isPassword=false});
 
   PintoTextFieldWithoutHintText.withoutAny() {
     this.label = 'อีเมล';
@@ -42,6 +44,8 @@ class PintoTextFieldWithoutHintText extends StatelessWidget {
                   ),
                 ),
               ),
+              initialValue: initValue,
+              obscureText: isPassword,
               validator: validator,
               onChanged: onChanged,
             ),
