@@ -20,9 +20,10 @@ class MyProfilePage extends StatelessWidget {
       ),
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.fromLTRB(0.1 * screenWidth, 0.02 * screenHeight, 0.1 * screenWidth, 0.02 * screenHeight),
+          padding: EdgeInsets.fromLTRB(0.05 * screenWidth, 0.02 * screenHeight, 0.05 * screenWidth, 0.02 * screenHeight),
           // decoration: BoxDecoration(color: deepWhite),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
                 child: Row(
@@ -36,7 +37,7 @@ class MyProfilePage extends StatelessWidget {
                       child: Image.asset('assets/images/Icons.jpg'),
                     ),
                     Container(
-                      width: 0.48 * screenWidth,
+
                       child: Text(
                         'firstname \nlastname \ncustomer',
                         // '${Auth.user.firstname} \n${Auth.user.lastname} \n${Auth.user.role}',
@@ -51,6 +52,7 @@ class MyProfilePage extends StatelessWidget {
                         //TODO:My edit profile page
                       },
                       icon: Icon(Icons.edit),
+                      alignment: Alignment.topCenter,
                     ),
                   ],
                 ),
@@ -70,7 +72,7 @@ class MyProfilePage extends StatelessWidget {
                       );
                     },
                     child: Container(
-                      width: 0.8 * screenWidth,
+                      width: 0.9 * screenWidth,
                       padding: EdgeInsets.only(top: 5),
                       child: Row(
                         children: [
@@ -103,7 +105,7 @@ class MyProfilePage extends StatelessWidget {
                       );
                     },
                     child: Container(
-                      width: 0.8 * screenWidth,
+                      width: 0.9 * screenWidth,
                       padding: EdgeInsets.only(top: 5),
                       child: Row(
                         children: [
@@ -140,7 +142,7 @@ class MyProfilePage extends StatelessWidget {
                           );
                         },
                         child: Container(
-                          width: 0.2 * screenWidth,
+                          width: 0.225 * screenWidth,
                           padding: EdgeInsets.only(top: 5),
                           child: Column(
                             children: [
@@ -169,7 +171,7 @@ class MyProfilePage extends StatelessWidget {
                           );
                         },
                         child: Container(
-                          width: 0.2 * screenWidth,
+                          width: 0.225 * screenWidth,
                           padding: EdgeInsets.only(top: 5),
                           child: Column(
                             children: [
@@ -198,7 +200,7 @@ class MyProfilePage extends StatelessWidget {
                           );
                         },
                         child: Container(
-                          width: 0.2 * screenWidth,
+                          width: 0.225 * screenWidth,
                           padding: EdgeInsets.only(top: 5),
                           child: Column(
                             children: [
@@ -227,7 +229,7 @@ class MyProfilePage extends StatelessWidget {
                           );
                         },
                         child: Container(
-                          width: 0.2 * screenWidth,
+                          width: 0.225 * screenWidth,
                           padding: EdgeInsets.only(top: 5),
                           child: Column(
                             children: [
