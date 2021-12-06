@@ -18,7 +18,7 @@ class _AuthControllerState extends State<AuthController> {
       future: Auth.getLoginUser(),
       builder: (BuildContext context, AsyncSnapshot<User> snapshot) {
         if (!snapshot.hasData) {
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(),
           );
         } else {

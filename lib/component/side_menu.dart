@@ -64,9 +64,9 @@ SideMenu({this.firstName, this.lastName});
             ),
             ListTile(
               leading: Icon(Icons.account_circle),
-              title: Text('จัดการบัญชี',style: kContentTextBlack),
+              title: Text('โปรไฟล์ของฉัน',style: kContentTextBlack),
               onTap: (){
-                if(currentPage=='จัดการบัญชี'){
+                if(currentPage=='โปรไฟล์ของฉัน'){
                   Navigator.pop(context);
                 }else{
                   Navigator.pushReplacementNamed(context, '/profile',);
@@ -78,14 +78,14 @@ SideMenu({this.firstName, this.lastName});
               leading: Icon(Icons.account_circle),
               title: Text('For dev order detail',style: kContentTextBlack),
               onTap: (){
-                Navigator.pushReplacementNamed(context, '/inorder/detail',);
+                Navigator.pushNamed(context, '/inorder/detail',);
               },
             ),
             ListTile(
               leading: Icon(Icons.account_circle),
               title: Text('For dev basket',style: kContentTextBlack),
               onTap: (){
-                Navigator.pushReplacementNamed(context, '/basket',);
+                Navigator.pushNamed(context, '/basket',);
               },
             ),
             ListTile(
@@ -95,10 +95,6 @@ SideMenu({this.firstName, this.lastName});
                 await Auth.logout();
                 Navigator.pushReplacementNamed(context,'/');
               },
-              // onPressed: () async {
-              //   await Auth.logout();
-              //   Navigator.pushReplacementNamed(context,'/');
-              // },
             ),
           ],
         ),

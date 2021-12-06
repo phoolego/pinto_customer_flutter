@@ -1,6 +1,6 @@
-import 'package:pinto_customer_flutter/model/stock_preview.dart';
+import 'package:pinto_customer_flutter/model/product_preview.dart';
 
-class Stock extends StockPreview{
+class Stock extends ProductPreview{
   double customerSales=0;
   double customerProOrder=0;
   List<StockFarm> farmers=[];

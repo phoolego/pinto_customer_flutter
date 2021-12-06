@@ -1,50 +1,80 @@
 import 'package:pinto_customer_flutter/api/api.dart';
+import 'package:pinto_customer_flutter/model/product.dart';
+import 'package:pinto_customer_flutter/model/stock.dart';
+import 'package:pinto_customer_flutter/model/product_preview.dart';
 import 'package:dio/dio.dart';
-import 'package:pinto_customer_flutter/model/farm_product.dart';
-import 'package:pinto_customer_flutter/model/product_type.dart';
+import 'package:pinto_customer_flutter/model/stock_product.dart';
 import 'package:pinto_customer_flutter/service/auth.dart';
+import 'package:pinto_customer_flutter/service/thai_sort.dart';
 
-class ProductService{
-  static Future<List<ProductType>> getAllProductType() async{
+class ProductService {
+  static Future<List<ProductPreview>> getProductPreviews() async {
     try {
-      var response = await Api.dio.get('/product-type',
+      print('call get');
+      var response = await Api.dio.get(
+        '/customer/get-sell-product',
         options: Options(
-          headers: {
-            'userId':Auth.user.userId
-          },
+          headers: {'userId': Auth.user.userId},
         ),
       );
-      List<ProductType> productType = (response.data as List).map((productType) => ProductType(
-          productType
-      )).toList();
-      return productType;
+      List<ProductPreview> productPreview = (response.data as List).map((e) => ProductPreview(e)).toList();
+      print(productPreview.length);
+      productPreview.sort((a, b) => ThaiSort.compareTo(a.name, b.name));
+      return productPreview;
     } on DioError catch (err) {
-      return err.response!.data['message'];
-    } catch (err){
       print(err.toString());
-      throw err;
+      print(err.response!.data['message']);
+      return err.response!.data['message'];
+    } catch (err) {
+      print(err.toString());
+      throw err.toString();
     }
   }
-  static Future<FarmProduct> getFarmProduct(int productId,int farmerId) async{
+  static Future<Product> getSellProductDetail(String productType) async{
     try {
-      var response = await Api.dio.get('/stock-detail/product',
+      var response = await Api.dio.get('/customer/get-sell-product/detail',
         options: Options(
           headers: {
             'userId':Auth.user.userId
           },
         ),
         queryParameters: {
-          'productId':productId,
-          'farmerId':farmerId
+          'productType' : productType
         },
       );
-      return FarmProduct(response.data);
+      Product productDetail = Product(response.data);
+      return productDetail;
     } on DioError catch (err) {
-      throw err.response!.data['message'];
-    } catch(err){
+      print(err.toString());
+      print(err.response!.data['message']);
+      return err.response!.data['message'];
+    } catch (err) {
       print(err.toString());
       throw err.toString();
     }
   }
-
+  static Future<Product> getPreOrderProductDetail(String productType) async{
+    try {
+      print(productType);
+      var response = await Api.dio.get('/customer/get-pre-order-product/detail',
+        options: Options(
+          headers: {
+            'userId':Auth.user.userId
+          },
+        ),
+        queryParameters: {
+          'productType' : productType
+        },
+      );
+      Product productDetail = Product(response.data);
+      return productDetail;
+    } on DioError catch (err) {
+      print(err.toString());
+      print(err.response!.data['message']);
+      return err.response!.data['message'];
+    } catch (err) {
+      print(err.toString());
+      throw err.toString();
+    }
+  }
 }
