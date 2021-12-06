@@ -39,7 +39,7 @@ class MyProfilePage extends StatelessWidget {
                     Container(
 
                       child: Text(
-                        'firstname \nlastname \ncustomer',
+                        '${Auth.user.firstname} \n${Auth.user.lastname}',
                         // '${Auth.user.firstname} \n${Auth.user.lastname} \n${Auth.user.role}',
                         textAlign: TextAlign.left,
                         style: kHeadingTextStyle,
@@ -47,9 +47,7 @@ class MyProfilePage extends StatelessWidget {
                     ),
                     IconButton(
                       onPressed: () {
-                        print('${Auth.user.firstname} เข้าสู่หน้าแก้ไขโปรไฟล์ของฉัน');
-                        Navigator.defaultRouteName;
-                        //TODO:My edit profile page
+                        Navigator.pushNamed(context, '/profile/edit');
                       },
                       icon: Icon(Icons.edit),
                       alignment: Alignment.topCenter,

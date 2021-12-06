@@ -47,7 +47,7 @@ const kLoginHeadingTextStyle = TextStyle(
   fontWeight: FontWeight.bold,
 );
 const kNormalErrorTextStyle = TextStyle(fontFamily: 'Prompt', fontSize: 16.0, color: notYetDeepRed);
-//button
+//buttonbuttonBlackTextStyle
 const buttonWhiteTextStyle = TextStyle(fontFamily: 'Prompt', fontSize: 14.0, color: deepWhite);
 const buttonBlackTextStyle = TextStyle(fontFamily: 'Prompt', fontSize: 14.0, color: deepBlack);
 

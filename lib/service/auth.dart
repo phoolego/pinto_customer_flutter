@@ -71,4 +71,33 @@ class Auth {
       return User.notLogin();
     }
   }
+  static Future<void> updateUser(String firstname, String lastname, String address, String contact) async{
+    try {
+      var response = await Api.dio.put('/update-farmer',
+        data:{
+          'firstname':firstname,
+          'lastname':lastname,
+          'address':address,
+          'contact':contact,
+          'userId':user.userId,
+        },
+        // options: Options(
+        //   headers: {
+        //     'userId':Auth.user.userId,
+        //   },
+        // ),
+      );
+      user = User(response.data);
+    } on DioError catch (err) {
+      if(err.response==null){
+        throw 'การเชื่อมต่อขัดข้อง';
+      }else if(err.response!.statusCode==403){
+        throw 'กรุณากรอกข้อมูลให้ครบถ้วน';
+      }else{
+        throw 'ระบบขัดข้อง';
+      }
+    } catch (err){
+      throw 'เกิดข้อผิดพลาด';
+    }
+  }
 }
