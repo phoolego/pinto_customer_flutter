@@ -71,12 +71,12 @@ class MyProfilePage extends StatelessWidget {
                     },
                     child: Container(
                       width: 0.9 * screenWidth,
-                      padding: EdgeInsets.only(top: 5),
+                      padding: const EdgeInsets.only(top: 5),
                       child: Row(
                         children: [
-                          Icon(Icons.account_box_outlined),
+                          const Icon(Icons.account_box_outlined),
                           Container(
-                            child: Text(
+                            child: const Text(
                               ' ที่อยู่ที่บันทึกไว้',
                               textAlign: TextAlign.left,
                               style: kContentTextBlack,
@@ -104,12 +104,12 @@ class MyProfilePage extends StatelessWidget {
                     },
                     child: Container(
                       width: 0.9 * screenWidth,
-                      padding: EdgeInsets.only(top: 5),
+                      padding: const EdgeInsets.only(top: 5),
                       child: Row(
                         children: [
                           Icon(Icons.history),
                           Container(
-                            child: Text(
+                            child: const Text(
                               ' ประวัติการซื้อ',
                               textAlign: TextAlign.left,
                               style: kContentTextBlack,
@@ -141,13 +141,13 @@ class MyProfilePage extends StatelessWidget {
                         },
                         child: Container(
                           width: 0.225 * screenWidth,
-                          padding: EdgeInsets.only(top: 5),
+                          padding: const EdgeInsets.only(top: 5),
                           child: Column(
                             children: [
-                              Icon(Icons.timelapse),
+                              const Icon(Icons.timelapse),
                               Container(
                                 padding: EdgeInsets.only(top: 5),
-                                child: Text(
+                                child: const Text(
                                   'ที่กำลังจอง',
                                   textAlign: TextAlign.left,
                                   style: kContentTextBlack,
@@ -173,10 +173,10 @@ class MyProfilePage extends StatelessWidget {
                           padding: EdgeInsets.only(top: 5),
                           child: Column(
                             children: [
-                              Icon(Icons.account_balance_wallet_outlined),
+                              const Icon(Icons.account_balance_wallet_outlined),
                               Container(
-                                padding: EdgeInsets.only(top: 5),
-                                child: Text(
+                                padding: const EdgeInsets.only(top: 5),
+                                child: const Text(
                                   'ที่ต้องชำระ',
                                   textAlign: TextAlign.left,
                                   style: kContentTextBlack,
@@ -199,13 +199,13 @@ class MyProfilePage extends StatelessWidget {
                         },
                         child: Container(
                           width: 0.225 * screenWidth,
-                          padding: EdgeInsets.only(top: 5),
+                          padding: const EdgeInsets.only(top: 5),
                           child: Column(
                             children: [
-                              Icon(Icons.backpack_outlined),
+                              const Icon(Icons.backpack_outlined),
                               Container(
                                 padding: EdgeInsets.only(top: 5),
-                                child: Text(
+                                child: const Text(
                                   'ที่ต้องจัดส่ง',
                                   textAlign: TextAlign.left,
                                   style: kContentTextBlack,
@@ -231,10 +231,10 @@ class MyProfilePage extends StatelessWidget {
                           padding: EdgeInsets.only(top: 5),
                           child: Column(
                             children: [
-                              Icon(Icons.directions_car_outlined),
+                              const Icon(Icons.directions_car_outlined),
                               Container(
-                                padding: EdgeInsets.only(top: 5),
-                                child: Text(
+                                padding: const EdgeInsets.only(top: 5),
+                                child: const Text(
                                   'ที่ต้องได้รับ',
                                   textAlign: TextAlign.left,
                                   style: kContentTextBlack,
