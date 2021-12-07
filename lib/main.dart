@@ -7,7 +7,7 @@ import 'package:pinto_customer_flutter/screen/Inorder/order_sending_page.dart';
 import 'package:pinto_customer_flutter/screen/address_page.dart';
 import 'package:pinto_customer_flutter/screen/auth/register_page.dart';
 import 'package:pinto_customer_flutter/screen/auth/auth_controller.dart';
-import 'package:pinto_customer_flutter/screen/basket_page.dart';
+import 'package:pinto_customer_flutter/screen/basket/basket_page.dart';
 import 'package:pinto_customer_flutter/screen/homepage.dart';
 import 'package:pinto_customer_flutter/screen/auth/login.dart';
 import 'package:pinto_customer_flutter/screen/my_profile_edit_page.dart';

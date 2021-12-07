@@ -1,15 +1,19 @@
 class OrderItem {
   int orderItemId = 0;
   double amount = 0.0;
-  int orderUnit = 0;
+  String unit = '';
+  double price = 0.0;
   int orderId = 0;
-  int inventoryId = 0;
+  String productType = '';
+  int? ppoId;
 
   OrderItem(Map<String, dynamic> jsonOrderItem) {
     orderItemId = jsonOrderItem['order_item_id'] + 0;
     amount = jsonOrderItem['amount'] + 0.0;
-    orderUnit = jsonOrderItem['unit'] + 0;
+    unit = jsonOrderItem['unit'];
+    price = jsonOrderItem['price'] + 0.0;
     orderId = jsonOrderItem['order_id'] + 0;
-    inventoryId = jsonOrderItem['inventory_id'] + 0;
+    productType = jsonOrderItem['type_of_product'];
+    ppoId = jsonOrderItem['ppo_id'];
   }
 }
