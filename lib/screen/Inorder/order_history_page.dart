@@ -13,6 +13,12 @@ class OrderHistoryPage extends StatelessWidget {
           'ประวัติการซื้อ',
           style: kAppbarTextStyle,
         ),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back_ios),
+        ),
       ),
       body: SafeArea(
         child: Column(

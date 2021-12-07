@@ -38,7 +38,6 @@ class MyApp extends StatelessWidget {
         '/inorder/pre-ordering': (context) => OrderPreOrdering(),
         '/inorder/paying': (context) => OrderPayingPage(),
         '/inorder/sending': (context) => OrderSendingPage(),
-        '/inorder/receiving': (context) => OrderReceivingPage(),
 
 
       },
