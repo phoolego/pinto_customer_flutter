@@ -3,7 +3,6 @@ import 'package:pinto_customer_flutter/screen/Inorder/order_detail_page.dart';
 import 'package:pinto_customer_flutter/screen/Inorder/order_history_page.dart';
 import 'package:pinto_customer_flutter/screen/Inorder/order_paying_page.dart';
 import 'package:pinto_customer_flutter/screen/Inorder/order_pre_ordering_page.dart';
-import 'package:pinto_customer_flutter/screen/Inorder/order_receiving_page.dart';
 import 'package:pinto_customer_flutter/screen/Inorder/order_sending_page.dart';
 import 'package:pinto_customer_flutter/screen/address_page.dart';
 import 'package:pinto_customer_flutter/screen/auth/register_page.dart';
