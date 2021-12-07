@@ -13,7 +13,7 @@ class MyProfilePage extends StatelessWidget {
       drawer: SideMenu.defaultMenu('โปรไฟล์ของฉัน'),
       appBar: AppBar(
         backgroundColor: deepGreen,
-        title: Text(
+        title: const Text(
           'โปรไฟล์ของฉัน',
           style: kAppbarTextStyle,
         ),
@@ -31,7 +31,7 @@ class MyProfilePage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      padding: EdgeInsets.only(right: 10),
+                      padding: const EdgeInsets.only(right: 10),
                       width: 90,
                       height: 90,
                       child: Image.asset('assets/images/Icons.jpg'),
@@ -64,7 +64,7 @@ class MyProfilePage extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushReplacementNamed(
+                      Navigator.pushNamed(
                         context,
                         '/address',
                       );
@@ -97,7 +97,7 @@ class MyProfilePage extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushReplacementNamed(
+                      Navigator.pushNamed(
                         context,
                         '/inorder/history',
                       );
@@ -134,7 +134,7 @@ class MyProfilePage extends StatelessWidget {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Navigator.pushReplacementNamed(
+                          Navigator.pushNamed(
                             context,
                             '/inorder/pre-ordering',
                           );
@@ -163,7 +163,7 @@ class MyProfilePage extends StatelessWidget {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Navigator.pushReplacementNamed(
+                          Navigator.pushNamed(
                             context,
                             '/inorder/paying',
                           );
@@ -192,7 +192,7 @@ class MyProfilePage extends StatelessWidget {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Navigator.pushReplacementNamed(
+                          Navigator.pushNamed(
                             context,
                             '/inorder/sending',
                           );
@@ -221,7 +221,7 @@ class MyProfilePage extends StatelessWidget {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Navigator.pushReplacementNamed(
+                          Navigator.pushNamed(
                             context,
                             '/inorder/receiving',
                           );
