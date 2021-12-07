@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:pinto_customer_flutter/component/pinto_button.dart';
 import 'package:pinto_customer_flutter/constant.dart';
 import 'package:pinto_customer_flutter/model/product.dart';
+import 'package:pinto_customer_flutter/screen/basket/add_to_basket.dart';
 import 'package:pinto_customer_flutter/service/date_format.dart';
 import 'package:pinto_customer_flutter/service/product_service.dart';
 
@@ -196,7 +197,14 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                               product.sellType=='PRE-ORDER'? const SizedBox(width: 0,):PintoButton.custom(
                                 width: screenWidth * 0.3,
                                 label: 'ใส่ตะกร้า',
-                                function: () {},
+                                function: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => AddToBasket(product: product,)
+                                      )
+                                  );
+                                },
                                 buttonColor: lightBlack,
                                 textStyle: kContentTextWhite,
                               )

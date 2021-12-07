@@ -1,8 +1,6 @@
 import 'package:pinto_customer_flutter/model/order_item.dart';
 
 class Order {
-  static List<OrderItem> basket = [];
-
   int orderId = 0;
   String paymentType = '';
   String status = '';
@@ -19,5 +17,31 @@ class Order {
     createdDate = DateTime.parse(jsonOrder['created_date']);
     userId = jsonOrder['user_id'] + 0;
     tranPic = jsonOrder['tran_pic'];
+  }
+
+  static List<OrderItem> basket = [];
+
+  static void addToBasket(OrderItem orderItem){
+    bool found = false;
+    for(int i=0 ; i<basket.length ; i++){
+      if(basket[i].productType==orderItem.productType){
+        basket[i].amount = orderItem.amount;
+        basket[i].price = orderItem.price;
+        found = true;
+        break;
+      }
+    }
+    if(!found){
+      basket.add(orderItem);
+    }
+  }
+
+  static OrderItem getBasketItem(String productType){
+    for(int i=0 ; i<basket.length ; i++){
+      if(basket[i].productType==productType){
+        return basket[i];
+      }
+    }
+    return OrderItem.basket(0, 0, '', '', null);
   }
 }

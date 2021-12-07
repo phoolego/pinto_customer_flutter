@@ -108,7 +108,7 @@ class InMarketProductCard extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => AddToBasket()
+                            builder: (context) => AddToBasket(product: product,)
                         )
                     );
                   },

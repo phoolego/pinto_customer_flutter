@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pinto_customer_flutter/component/in_basket_product_card.dart';
+import 'package:pinto_customer_flutter/component/pinto_button.dart';
 import 'package:pinto_customer_flutter/constant.dart';
+import 'package:pinto_customer_flutter/model/order.dart';
 
 class BasketPage extends StatelessWidget {
   @override
@@ -10,32 +12,29 @@ class BasketPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: deepGreen,
-        title: Text(
+        title: const Text(
           'ตะกร้าสินค้า',
           style: kAppbarTextStyle,
         ),
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Icon(Icons.arrow_back_ios),
-        ),
+      ),
+      floatingActionButton: PintoButton(
+        function:(){},
+        buttonColor: deepGreen,
+        label: 'สั่งซื้อ'
       ),
       body: SafeArea(
         child: Column(
           children: [
             Expanded(
-              child: SingleChildScrollView(
-                child: Container(
-                  padding: EdgeInsets.fromLTRB(30, 20, 30, 20),
-                  child: Column(
-                    children: [
-                      // todo ทำการ์ดสินค้า
-                      InbasketProductCard(productName: 'ผักกาดขาว',function: (){},),
-                    ],
-                  ),
-                ),
-              ),
+              child: ListView.builder(
+                itemCount: Order.basket.length,
+                itemBuilder: (context,index){
+                  return Container(
+                    padding: EdgeInsets.symmetric(vertical: 20,horizontal: 30),
+                    child: InbasketProductCard(orderItem: Order.basket[index],function: (){},),
+                  );
+                }
+              )
             ),
           ],
         ),

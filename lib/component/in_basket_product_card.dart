@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:pinto_customer_flutter/constant.dart';
-import 'package:pinto_customer_flutter/model/product_type.dart';
+import 'package:pinto_customer_flutter/model/order_item.dart';
 
 class InbasketProductCard extends StatelessWidget {
   // ProductType product;
   var function;
-  String productName='';
+  OrderItem orderItem;
 
   InbasketProductCard({
-    required this.productName,
+    required this.orderItem,
     required this.function});
 
   @override
@@ -27,9 +27,9 @@ class InbasketProductCard extends StatelessWidget {
                   SizedBox(
                     width: 80,
                     height: 80,
-                    child: Image.asset('assets/images/Icons.jpg'),
-                    // child: product.productTypePicUrl!=null?Image.network(product.productTypePicUrl!,fit: BoxFit.cover,):
-                    // Image.asset('assets/images/Icons.jpg'),
+                    // child: Image.asset('assets/images/Icons.jpg'),
+                    child: orderItem.picUrl!=null?Image.network(orderItem.picUrl!,fit: BoxFit.cover,):
+                    Image.asset('assets/images/Icons.jpg'),
                   ),
                   Container(
                     padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
@@ -37,7 +37,15 @@ class InbasketProductCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          productName,
+                          orderItem.productType,
+                          style: kHeadingTextStyle,
+                        ),
+                        Text(
+                          '${orderItem.amount} ${orderItem.unit}',
+                          style: kHeadingTextStyle,
+                        ),
+                        Text(
+                          '${orderItem.price} บาท',
                           style: kHeadingTextStyle,
                         ),
                       ],
