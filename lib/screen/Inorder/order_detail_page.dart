@@ -11,7 +11,7 @@ class OrderDetailPage extends StatelessWidget {
     int orderId = 123456;
     String status = 'status';
     double priceOrder = 300;
-    double shipping =20;
+    double shipping = 20;
     double total = 320;
     return Scaffold(
       appBar: AppBar(

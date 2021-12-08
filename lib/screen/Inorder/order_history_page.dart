@@ -10,7 +10,7 @@ class OrderHistoryPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: deepGreen,
         title: Text(
-          'ประวัติการซื้อ',
+          'ประวัติการซื้อ(test)',
           style: kAppbarTextStyle,
         ),
         leading: IconButton(
