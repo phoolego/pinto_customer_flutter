@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pinto_customer_flutter/component/in_basket_product_card.dart';
 import 'package:pinto_customer_flutter/component/pinto_button.dart';
+import 'package:pinto_customer_flutter/component/side_menu.dart';
 import 'package:pinto_customer_flutter/constant.dart';
 import 'package:pinto_customer_flutter/model/order.dart';
 
@@ -17,8 +18,13 @@ class BasketPage extends StatelessWidget {
           style: kAppbarTextStyle,
         ),
       ),
+      drawer: SideMenu.defaultMenu('ตะกร้า'),
       floatingActionButton: PintoButton(
-        function:(){},
+        function:(){
+          if(Order.basket.isNotEmpty){
+            Navigator.pushNamed(context, '/purchase');
+          }
+        },
         buttonColor: deepGreen,
         label: 'สั่งซื้อ'
       ),
@@ -26,11 +32,13 @@ class BasketPage extends StatelessWidget {
         child: Column(
           children: [
             Expanded(
-              child: ListView.builder(
+              child: Order.basket.isEmpty?
+              const Center(child:Text('ไม่มีสินค้าในตะกร้า',style: kHeadingTextStyle,))
+              :ListView.builder(
                 itemCount: Order.basket.length,
                 itemBuilder: (context,index){
                   return Container(
-                    padding: EdgeInsets.symmetric(vertical: 20,horizontal: 30),
+                    padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 30),
                     child: InbasketProductCard(orderItem: Order.basket[index],function: (){},),
                   );
                 }

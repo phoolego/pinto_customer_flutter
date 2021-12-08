@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pinto_customer_flutter/constant.dart';
 import 'package:pinto_customer_flutter/model/product_preview.dart';
+import 'package:pinto_customer_flutter/screen/add_pre_order.dart';
 import 'package:pinto_customer_flutter/screen/basket/add_to_basket.dart';
 import 'package:pinto_customer_flutter/screen/product_detail_page.dart';
 import 'package:pinto_customer_flutter/service/date_format.dart';
@@ -108,7 +109,7 @@ class InMarketProductCard extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => AddToBasket(product: product,)
+                            builder: (context) => AddToBasket(product: product,isGotoBasket: false,)
                         )
                     );
                   },
@@ -119,7 +120,23 @@ class InMarketProductCard extends StatelessWidget {
                     buttonText,
                     style: kContentTextBlack,
                   ),
-                  onPressed: functionOrdering,
+                  onPressed: (){
+                    if (statusNumber == 1){
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AddPreOrder(product: product)
+                          )
+                      );
+                    }else if (statusNumber == 2){
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AddToBasket(product: product,isGotoBasket: true,)
+                          )
+                      );
+                    }
+                  },
                 ),
                 const SizedBox(width: 8),
               ],

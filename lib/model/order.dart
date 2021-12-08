@@ -7,6 +7,8 @@ class Order {
   String deliveryType = '';
   DateTime createdDate = DateTime.now();
   int userId = 0;
+  double deliveryPrice = 0;
+  List<OrderItem> orderItems = [];
   String? tranPic;
 
   Order(Map<String, dynamic> jsonOrder) {
@@ -16,7 +18,9 @@ class Order {
     deliveryType = jsonOrder['delivery_type'];
     createdDate = DateTime.parse(jsonOrder['created_date']);
     userId = jsonOrder['user_id'] + 0;
+    deliveryPrice = jsonOrder['delivery_price'] + 0.0;
     tranPic = jsonOrder['tran_pic'];
+    orderItems = (jsonOrder['orderItem'] as List).map((e) => OrderItem(e)).toList();
   }
 
   static List<OrderItem> basket = [];

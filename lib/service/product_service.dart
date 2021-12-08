@@ -42,7 +42,7 @@ class ProductService {
     } on DioError catch (err) {
       print(err.toString());
       print(err.response!.data['message']);
-      return err.response!.data['message'];
+      throw err.response!.data['message'];
     } catch (err) {
       print(err.toString());
       throw err.toString();
@@ -50,7 +50,6 @@ class ProductService {
   }
   static Future<Product> getPreOrderProductDetail(String productType) async{
     try {
-      print(productType);
       var response = await Api.dio.get('/customer/get-pre-order-product/detail',
         options: Options(
           headers: {
@@ -66,7 +65,7 @@ class ProductService {
     } on DioError catch (err) {
       print(err.toString());
       print(err.response!.data['message']);
-      return err.response!.data['message'];
+      throw err.response!.data['message'];
     } catch (err) {
       print(err.toString());
       throw err.toString();

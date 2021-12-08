@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:pinto_customer_flutter/component/pinto_button.dart';
 import 'package:pinto_customer_flutter/constant.dart';
 import 'package:pinto_customer_flutter/model/product.dart';
+import 'package:pinto_customer_flutter/screen/add_pre_order.dart';
 import 'package:pinto_customer_flutter/screen/basket/add_to_basket.dart';
 import 'package:pinto_customer_flutter/service/date_format.dart';
 import 'package:pinto_customer_flutter/service/product_service.dart';
@@ -190,7 +191,23 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                               PintoButton.custom(
                                 width: screenWidth * 0.3,
                                 label: buttonText,
-                                function: () {},
+                                function: () {
+                                  if (widget.status == 1){
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => AddPreOrder(product: product)
+                                        )
+                                    );
+                                  }else if(widget.status == 2){
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => AddToBasket(product: product,isGotoBasket: true,)
+                                        )
+                                    );
+                                  }
+                                },
                                 buttonColor: buttonColor,
                                 textStyle: kContentTextWhite,
                               ),
@@ -201,7 +218,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => AddToBasket(product: product,)
+                                          builder: (context) => AddToBasket(product: product,isGotoBasket: false,)
                                       )
                                   );
                                 },

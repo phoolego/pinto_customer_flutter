@@ -8,7 +8,8 @@ import 'package:pinto_customer_flutter/model/product_preview.dart';
 
 class AddToBasket extends StatefulWidget {
   ProductPreview product;
-  AddToBasket({Key? key,required this.product}) : super(key: key);
+  bool isGotoBasket;
+  AddToBasket({Key? key,required this.product,required this.isGotoBasket}) : super(key: key);
 
   @override
   _AddToBasketState createState() => _AddToBasketState();
@@ -137,6 +138,11 @@ class _AddToBasketState extends State<AddToBasket> {
                             if(_formKey.currentState!.validate()){
                               Order.addToBasket(OrderItem.basket(_amount, _price, product.name, product.unit,product.picUlr));
                               Navigator.pop(context);
+                              if(widget.isGotoBasket){
+                                Navigator.popUntil(context, ModalRoute.withName('/home'));
+                                Navigator.pushReplacementNamed(context, '/basket');
+                                Navigator.pushNamed(context, '/purchase');
+                              }
                             }
                           },
                         ),

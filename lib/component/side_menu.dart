@@ -71,7 +71,6 @@ SideMenu({this.firstName, this.lastName});
                 }else{
                   Navigator.pushReplacementNamed(context, '/profile',);
                 }
-
               },
             ),
             ListTile(
@@ -83,9 +82,13 @@ SideMenu({this.firstName, this.lastName});
             ),
             ListTile(
               leading: Icon(Icons.account_circle),
-              title: Text('For dev basket',style: kContentTextBlack),
+              title: Text('ตะกร้า',style: kContentTextBlack),
               onTap: (){
-                Navigator.pushNamed(context, '/basket',);
+                if(currentPage=='ตะกร้า'){
+                  Navigator.pop(context);
+                }else{
+                  Navigator.pushReplacementNamed(context, '/basket',);
+                }
               },
             ),
             ListTile(

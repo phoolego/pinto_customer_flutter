@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-        drawer: SideMenu.withoutAny(),
+        drawer: SideMenu.defaultMenu('หน้าหลัก'),
         appBar: AppBar(
           backgroundColor: deepGreen,
           title: !isSearch
