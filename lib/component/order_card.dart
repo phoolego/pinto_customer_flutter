@@ -17,7 +17,6 @@ class OrderCard extends StatelessWidget {
       onTap: function,
       child: Container(
         padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
-        height: 150,
         width: screenWidth*0.8,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
