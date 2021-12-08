@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:pinto_customer_flutter/constant.dart';
+import 'package:pinto_customer_flutter/model/order.dart';
+import 'package:pinto_customer_flutter/service/date_format.dart';
 
-class AddressCard extends StatelessWidget {
-  int id = 0;
-  String addressName = '';
-  String address = '';
+class OrderCard extends StatelessWidget {
+  Order order;
   var function;
-
-  AddressCard(
-      {required this.id,
-        required this.addressName,
-        required this.address,
+  OrderCard(
+      {required this.order,
         required this.function});
-
-
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
@@ -22,7 +17,7 @@ class AddressCard extends StatelessWidget {
       onTap: function,
       child: Container(
         padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
-        // height: screenHeight*0.15,
+        height: 150,
         width: screenWidth*0.8,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -40,25 +35,30 @@ class AddressCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            addressName,
+                            'รายการสั่งซื้อที่: ${order.orderId}',
                             textAlign: TextAlign.left,
                             style: kContentTextBlackBold,
                           ),
-                          SizedBox(
-                            width: screenWidth*0.7,
-                            child: Text(
-                              address,
-                              textAlign: TextAlign.left,
-                              style: kContentTextBlack,
-                              maxLines: 4,
-                              // softWrap: true,
-                            ),
+                          Text(
+                            'วันที่สั่งซื้อ: ${DateFormat.getFullDate(order.createdDate)}',
+                            textAlign: TextAlign.left,
+                            style: kContentTextBlack,
                           ),
+                          Text(
+                            'สถานะ: ${order.getStatus()}',
+                            textAlign: TextAlign.left,
+                            style: kContentTextBlack,
+                          )
                         ],
                       )
                     ],
                   ),
                 ),
+                Text(
+                  'รายละเอียด',
+                  textAlign: TextAlign.left,
+                  style: kContentTextBlack,
+                )
               ],
             ),
             const Divider(

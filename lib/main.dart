@@ -13,7 +13,6 @@ import 'package:pinto_customer_flutter/screen/homepage.dart';
 import 'package:pinto_customer_flutter/screen/auth/login.dart';
 import 'package:pinto_customer_flutter/screen/my_profile_edit_page.dart';
 import 'package:pinto_customer_flutter/screen/my_profile_page.dart';
-import 'package:pinto_customer_flutter/screen/product_detail_page.dart';
 import 'package:pinto_customer_flutter/screen/purchase/purchase_page.dart';
 
 void main() => runApp(MyApp());
@@ -35,11 +34,12 @@ class MyApp extends StatelessWidget {
         '/address': (context) => AddressPage(),
         '/address/create': (context) => AddressCreatePage(),
         '/basket': (context) => BasketPage(),
-        '/inorder/history': (context) => OrderHistoryPage(),
+        '/inorder/history': (context) => OrderHistoryPage(status:'COMPLETE'),
         '/inorder/detail': (context) => OrderDetailPage(),
         '/inorder/pre-ordering': (context) => OrderPreOrdering(),
-        '/inorder/paying': (context) => OrderPayingPage(),
-        '/inorder/sending': (context) => OrderSendingPage(),
+        '/inorder/paying': (context) => OrderPayingPage(status:'WAIT'),
+        '/inorder/paying': (context) => OrderPayingPage(status:'PAID'),
+        '/inorder/sending': (context) => OrderSendingPage(status:'VALIDATE'),
         '/purchase': (context) => PurchasePage(),
       },
     );

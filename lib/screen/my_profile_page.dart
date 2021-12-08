@@ -40,7 +40,6 @@ class MyProfilePage extends StatelessWidget {
 
                       child: Text(
                         '${Auth.user.firstname} \n${Auth.user.lastname}',
-                        // '${Auth.user.firstname} \n${Auth.user.lastname} \n${Auth.user.role}',
                         textAlign: TextAlign.left,
                         style: kHeadingTextStyle,
                       ),

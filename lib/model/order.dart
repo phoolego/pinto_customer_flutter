@@ -48,4 +48,18 @@ class Order {
     }
     return OrderItem.basket(0, 0, '', '', null);
   }
+
+  String getStatus(){
+    if(status=='WAIT'){
+      return 'รอการชำระเงิน';
+    }else if(status=='PAID'){
+      return 'รอการตรวจสอบ';
+    }else if(status=='VALIDATE'){
+      return 'รอการจัดส่ง';
+    }else if(status=='COMPLETE'){
+      return 'เสร็จสิ้น';
+    }else{
+      return '';
+    }
+  }
 }
