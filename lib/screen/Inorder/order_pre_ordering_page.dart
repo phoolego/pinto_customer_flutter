@@ -1,16 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:pinto_customer_flutter/component/order_card.dart';
 import 'package:pinto_customer_flutter/constant.dart';
+import 'package:pinto_customer_flutter/model/order.dart';
+import 'package:pinto_customer_flutter/service/order_service.dart';
 
-class OrderPreOrdering extends StatelessWidget {
+class OrderPreOrderPage extends StatefulWidget {
+  String status = '';
+  OrderPreOrderPage({required this.status,
+  });
+  @override
+  State<OrderPreOrderPage> createState() => _OrderPreOrderPageState();
+}
+
+class _OrderPreOrderPageState extends State<OrderPreOrderPage> {
+
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: deepGreen,
         title: Text(
-          'คำสั่งซื้อที่กำลังจอง',
+          'สินค้าที่สั่งจอง',
           style: kAppbarTextStyle,
         ),
         leading: IconButton(
@@ -21,22 +34,51 @@ class OrderPreOrdering extends StatelessWidget {
         ),
       ),
       body: SafeArea(
-        child: Column(
-          children: [
-            Expanded(
-              child: SingleChildScrollView(
-                child: Container(
-                  padding: EdgeInsets.fromLTRB(30, 20, 30, 20),
-                  child: Column(
+          child: FutureBuilder<List<Order>>(
+              future: OrderService.getOrder(widget.status),
+              builder: (BuildContext context, AsyncSnapshot<List<Order>> snapshot) {
+                if (!snapshot.hasData) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+                else {
+                  List<Order> listOrder = snapshot.data!;
+                  return Column(
                     children: [
-                      // todo ทำการ์ดรายการสั่งซื้อ
+                      Expanded(
+                        child: ListView.builder(
+                          itemCount: listOrder.length,
+                          itemBuilder: (context,index)=>
+                              Padding(
+                                  padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.03),
+                                  child: OrderCard(
+                                    // id: listOrder[index].orderId,
+                                    // status: listOrder[index].status,
+                                    // createdDate: listOrder[index].createdDate,
+                                    order: listOrder[index],
+                                    function: null,
+                                  )
+                              ),
+                        ),
+                      ),
+                      // Center(
+                      //   child: PintoButton(
+                      //     width: 200,
+                      //     label: 'เพิ่มหลักฐานการชำระเงิน',
+                      //     buttonColor: lightGreen, function: () {
+                      //     Navigator.pushNamed(context, '');
+                      //   },
+                      //   ),
+                      // ),
+                      SizedBox(
+                        height: screenHeight * 0.1,
+                      ),
                     ],
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
+                  );
+                }
+              }
+          )
       ),
     );
   }

@@ -1,23 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:pinto_customer_flutter/constant.dart';
 import 'package:pinto_customer_flutter/model/order.dart';
+import 'package:pinto_customer_flutter/screen/Inorder/order_detail_page.dart';
 import 'package:pinto_customer_flutter/service/date_format.dart';
 
 class OrderCard extends StatelessWidget {
   Order order;
   var function;
-  OrderCard(
-      {required this.order,
-        required this.function});
+  OrderCard({required this.order, required this.function});
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     return InkWell(
-      onTap: function,
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => OrderDetailPage(order: order)));
+      },
       child: Container(
         padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
-        width: screenWidth*0.8,
+        width: screenWidth * 0.8,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -53,11 +57,11 @@ class OrderCard extends StatelessWidget {
                     ],
                   ),
                 ),
-                Text(
-                  'รายละเอียด',
-                  textAlign: TextAlign.left,
-                  style: kContentTextBlack,
-                )
+                // Text(
+                //   'รายละเอียด',
+                //   textAlign: TextAlign.right,
+                //   style: kContentTextBlack,
+                // )
               ],
             ),
             const Divider(

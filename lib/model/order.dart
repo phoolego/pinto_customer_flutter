@@ -5,6 +5,7 @@ class Order {
   String paymentType = '';
   String status = '';
   String deliveryType = '';
+  String destination='';
   DateTime createdDate = DateTime.now();
   int userId = 0;
   double deliveryPrice = 0;
@@ -16,6 +17,7 @@ class Order {
     paymentType = jsonOrder['payment_type'];
     status = jsonOrder['status'];
     deliveryType = jsonOrder['delivery_type'];
+    destination = jsonOrder['destination'];
     createdDate = DateTime.parse(jsonOrder['created_date']);
     userId = jsonOrder['user_id'] + 0;
     deliveryPrice = jsonOrder['delivery_price'] + 0.0;
