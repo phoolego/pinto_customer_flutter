@@ -27,7 +27,7 @@ class _OrderConfirmingPageState extends State<OrderConfirmingPage> {
       appBar: AppBar(
         backgroundColor: deepGreen,
         title: Text(
-          'คำสั่งซื้อที่ต้องชำระ',
+          'คำสั่งซื้อที่รอการยืนยัน',
           style: kAppbarTextStyle,
         ),
         leading: IconButton(

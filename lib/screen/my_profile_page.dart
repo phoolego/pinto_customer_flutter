@@ -127,7 +127,7 @@ class MyProfilePage extends StatelessWidget {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-                crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Column(
                     children: [
@@ -148,7 +148,7 @@ class MyProfilePage extends StatelessWidget {
                                 padding: EdgeInsets.only(top: 5),
                                 child: const Text(
                                   'ที่กำลังจอง',
-                                  textAlign: TextAlign.left,
+                                  textAlign: TextAlign.center,
                                   style: kContentTextBlack,
                                 ),
                               )
@@ -177,7 +177,7 @@ class MyProfilePage extends StatelessWidget {
                                 padding: const EdgeInsets.only(top: 5),
                                 child: const Text(
                                   'ที่ต้องชำระ',
-                                  textAlign: TextAlign.left,
+                                  textAlign: TextAlign.center,
                                   style: kContentTextBlack,
                                 ),
                               )
@@ -206,7 +206,7 @@ class MyProfilePage extends StatelessWidget {
                                 padding: EdgeInsets.only(top: 5),
                                 child: const Text(
                                   'รอการยืนยัน',
-                                  textAlign: TextAlign.left,
+                                  textAlign: TextAlign.center,
                                   style: kContentTextBlack,
                                 ),
                               )
@@ -235,7 +235,7 @@ class MyProfilePage extends StatelessWidget {
                                 padding: const EdgeInsets.only(top: 5),
                                 child: const Text(
                                   'ที่ต้องได้รับ',
-                                  textAlign: TextAlign.left,
+                                  textAlign: TextAlign.center,
                                   style: kContentTextBlack,
                                 ),
                               )

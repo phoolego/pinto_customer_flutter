@@ -25,7 +25,7 @@ class _OrderSendingPageState extends State<OrderSendingPage> {
       appBar: AppBar(
         backgroundColor: deepGreen,
         title: Text(
-          'คำสั่งซื้อที่ต้องชำระ',
+          'คำสั่งซื้อที่รอจัดส่ง',
           style: kAppbarTextStyle,
         ),
         leading: IconButton(

@@ -25,7 +25,7 @@ class _OrderHistoryPageState extends State<OrderHistoryPage> {
       appBar: AppBar(
         backgroundColor: deepGreen,
         title: Text(
-          'คำสั่งซื้อที่ต้องชำระ',
+          'ประวัติการสั่งซื้อ',
           style: kAppbarTextStyle,
         ),
         leading: IconButton(
