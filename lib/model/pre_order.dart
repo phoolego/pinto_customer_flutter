@@ -5,6 +5,7 @@ class PreOrder {
   double amount = 0.0;
   DateTime? sellingDate;
   String productType = '';
+  String unit = '';
 
   PreOrder(Map<String, dynamic> jsonOrderItem) {
     ppoId = jsonOrderItem['ppoId'] + 0;
@@ -13,5 +14,6 @@ class PreOrder {
     amount = jsonOrderItem['amount'] + 0.0;
     sellingDate = jsonOrderItem['selling_date']!=null?DateTime.parse(jsonOrderItem['selling_date']).toLocal():null;
     productType = jsonOrderItem['type_of_product'];
+    unit = jsonOrderItem['unit'];
   }
 }

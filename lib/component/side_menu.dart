@@ -63,17 +63,6 @@ SideMenu({this.firstName, this.lastName});
               },
             ),
             ListTile(
-              leading: Icon(Icons.account_circle),
-              title: Text('โปรไฟล์ของฉัน',style: kContentTextBlack),
-              onTap: (){
-                if(currentPage=='โปรไฟล์ของฉัน'){
-                  Navigator.pop(context);
-                }else{
-                  Navigator.pushReplacementNamed(context, '/profile',);
-                }
-              },
-            ),
-            ListTile(
               leading: Icon(Icons.shopping_cart),
               title: Text('ตะกร้า',style: kContentTextBlack),
               onTap: (){
@@ -81,6 +70,17 @@ SideMenu({this.firstName, this.lastName});
                   Navigator.pop(context);
                 }else{
                   Navigator.pushReplacementNamed(context, '/basket',);
+                }
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.account_circle),
+              title: Text('โปรไฟล์ของฉัน',style: kContentTextBlack),
+              onTap: (){
+                if(currentPage=='โปรไฟล์ของฉัน'){
+                  Navigator.pop(context);
+                }else{
+                  Navigator.pushReplacementNamed(context, '/profile',);
                 }
               },
             ),
