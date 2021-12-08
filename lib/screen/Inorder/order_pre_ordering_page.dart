@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:pinto_customer_flutter/component/order_card.dart';
+import 'package:pinto_customer_flutter/component/preorder_card.dart';
 import 'package:pinto_customer_flutter/constant.dart';
-import 'package:pinto_customer_flutter/model/order.dart';
-import 'package:pinto_customer_flutter/service/order_service.dart';
+import 'package:pinto_customer_flutter/model/pre_order.dart';
+import 'package:pinto_customer_flutter/service/pre_order_service.dart';
 
 class OrderPreOrderPage extends StatefulWidget {
-  String status = '';
+  String? status = '';
   OrderPreOrderPage({required this.status,
   });
   @override
@@ -34,29 +35,29 @@ class _OrderPreOrderPageState extends State<OrderPreOrderPage> {
         ),
       ),
       body: SafeArea(
-          child: FutureBuilder<List<Order>>(
-              future: OrderService.getOrder(widget.status),
-              builder: (BuildContext context, AsyncSnapshot<List<Order>> snapshot) {
+          child: FutureBuilder<List<PreOrder>>(
+              future: PreOrderService.getPreOrder(widget.status),
+              builder: (BuildContext context, AsyncSnapshot<List<PreOrder>> snapshot) {
                 if (!snapshot.hasData) {
                   return const Center(
                     child: CircularProgressIndicator(),
                   );
                 }
                 else {
-                  List<Order> listOrder = snapshot.data!;
+                  List<PreOrder> listPreOrder = snapshot.data!;
                   return Column(
                     children: [
                       Expanded(
                         child: ListView.builder(
-                          itemCount: listOrder.length,
+                          itemCount: listPreOrder.length,
                           itemBuilder: (context,index)=>
                               Padding(
                                   padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.03),
-                                  child: OrderCard(
+                                  child: PreOrderCard(
                                     // id: listOrder[index].orderId,
                                     // status: listOrder[index].status,
                                     // createdDate: listOrder[index].createdDate,
-                                    order: listOrder[index],
+                                    preOrder: listPreOrder[index],
                                     function: null,
                                   )
                               ),

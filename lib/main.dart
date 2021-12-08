@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
         '/basket': (context) => BasketPage(),
         '/inorder/history': (context) => OrderHistoryPage(status:'COMPLETE'),
         // '/inorder/detail': (context) => OrderDetailPage(),
-        '/inorder/pre-ordering': (context) => OrderPreOrderPage(status:''),
+        '/inorder/pre-ordering': (context) => OrderPreOrderPage(status:null),
         '/inorder/paying': (context) => OrderPayingPage(status:'WAIT'),
         '/inorder/confirming': (context) => OrderConfirmingPage(status:'PAID'),
         '/inorder/sending': (context) => OrderSendingPage(status:'VALIDATE'),
