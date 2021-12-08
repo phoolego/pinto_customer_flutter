@@ -1,11 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:pinto_customer_flutter/api/api.dart';
-import 'package:pinto_customer_flutter/model/order.dart';
+import 'package:pinto_customer_flutter/model/pre_order.dart';
 
 import 'auth.dart';
 
 class PreOrderService{
-  static Future<List<Order>> getPreOrder(String? status) async {
+  static Future<List<PreOrder>> getPreOrder(String? status) async {
     try {
       var response = await Api.dio.get(
         '/customer/pre-order',
@@ -16,8 +16,8 @@ class PreOrderService{
           'status': status
         },
       );
-      List<Order> order = (response.data as List).map((e) => Order(e)).toList();
-      return order;
+      List<PreOrder> preOrder = (response.data as List).map((e) => PreOrder(e)).toList();
+      return preOrder;
     } on DioError catch (err) {
       print(err.response!.data['message']);
       return err.response!.data['message'];
