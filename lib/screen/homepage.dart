@@ -76,8 +76,8 @@ class _HomePageState extends State<HomePage> {
                   child: CircularProgressIndicator(),
                 );
               } else {
-                List<ProductPreview> listProductPreview = snapshot.data!;
-                // List<ProductPreview> listProductPreview = searchOperation(searchKeyword, snapshot.data!);
+                // List<ProductPreview> listProductPreview = snapshot.data!;
+                List<ProductPreview> listProductPreview = searchOperation(searchKeyword, snapshot.data!);
                 return ListView.builder(
                   itemCount: listProductPreview.length,
                   itemBuilder: (context,index)=> Padding(

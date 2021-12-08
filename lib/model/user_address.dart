@@ -8,6 +8,6 @@ class UserAddress{
     id = json['id'];
     addressName = json['address_name'];
     address = json['address'];
-    inUser = json['in_use'];
+    inUser = json['in_use']==1 ?true:false ;
   }
 }

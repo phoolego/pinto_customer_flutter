@@ -29,56 +29,58 @@ class _AddressCreatePageState extends State<AddressCreatePage> {
       body: SingleChildScrollView(
         child: Form(
           key: _formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              PintoTextFieldWithoutHintText(
-                label: 'ชื่อที่ต้องการบันทึก',
-                validator: (String? val) {
-                  if (val!.isEmpty) {
-                    return 'กรุณากรอกชื่อที่ต้องการบันทึก';
-                  } else {
-                    return null;
-                  }
-                },
-                onChanged: (val) {
-                  addressName = val;
-                },
-              ),
-              PintoTextFieldWithoutHintText(
-                label: 'ที่อยู่',
-                validator: (String? val) {
-                  if (val!.isEmpty) {
-                    return 'กรุณากรอกที่อยู่';
-                  } else {
-                    return null;
-                  }
-                },
-                onChanged: (val) {
-                  address = val;
-                },
-              ),
-
-              Container(
-                alignment: Alignment.center,
-                child: PintoButton(
-                  label: 'ลงทะเบียน',function: ()async{
-                  if(_formKey.currentState!.validate()){
-                    try{
-                      await UserAddressService.insertUserAddress(addressName, address);
-                      Navigator.pushNamed(context, '/address');
-                    }catch(err){
-                      setState(() {
-                        _errorMessage = err.toString();
-                      });
+          child: Container(
+            padding: EdgeInsets.fromLTRB(2,10,2,20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                PintoTextFieldWithoutHintText(
+                  label: 'ชื่อที่ต้องการบันทึก',
+                  validator: (String? val) {
+                    if (val!.isEmpty) {
+                      return 'กรุณากรอกชื่อที่ต้องการบันทึก';
+                    } else {
+                      return null;
                     }
-                  }
-                },buttonColor: deepGreen,
+                  },
+                  onChanged: (val) {
+                    addressName = val;
+                  },
                 ),
-              ),
-              Text(_errorMessage,style: const TextStyle(color: Colors.red),),
-              SizedBox(height: screenHeight * 0.05,),
-            ],
+                PintoTextFieldWithoutHintText(
+                  label: 'ที่อยู่',
+                  validator: (String? val) {
+                    if (val!.isEmpty) {
+                      return 'กรุณากรอกที่อยู่';
+                    } else {
+                      return null;
+                    }
+                  },
+                  onChanged: (val) {
+                    address = val;
+                  },
+                ),
+                Container(
+                  alignment: Alignment.center,
+                  child: PintoButton(
+                    label: 'ลงทะเบียน',function: ()async{
+                    if(_formKey.currentState!.validate()){
+                      try{
+                        await UserAddressService.insertUserAddress(addressName, address);
+                        Navigator.pushNamed(context, '/address');
+                      }catch(err){
+                        setState(() {
+                          _errorMessage = err.toString();
+                        });
+                      }
+                    }
+                  },buttonColor: deepGreen,
+                  ),
+                ),
+                Text(_errorMessage,style: const TextStyle(color: Colors.red),textAlign: TextAlign.center,),
+                SizedBox(height: screenHeight * 0.05,),
+              ],
+            ),
           ),
         ),
       ),
