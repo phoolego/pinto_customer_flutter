@@ -150,8 +150,9 @@ class AddressPage extends StatelessWidget {
               child: PintoButton(
                   width: 200,
                   label: 'เพิ่มที่อยูใหม่่',
-                  buttonColor: lightGreen,function: () async{
-              }
+                  buttonColor: lightGreen,function: () {
+                Navigator.pushNamed(context, '/address/create');
+              },
               ),
             ),
             SizedBox(

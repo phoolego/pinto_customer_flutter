@@ -74,14 +74,7 @@ SideMenu({this.firstName, this.lastName});
               },
             ),
             ListTile(
-              leading: Icon(Icons.account_circle),
-              title: Text('For dev order detail',style: kContentTextBlack),
-              onTap: (){
-                Navigator.pushNamed(context, '/inorder/detail',);
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.account_circle),
+              leading: Icon(Icons.shopping_cart),
               title: Text('ตะกร้า',style: kContentTextBlack),
               onTap: (){
                 if(currentPage=='ตะกร้า'){
