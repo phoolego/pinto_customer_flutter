@@ -132,7 +132,7 @@ class _PurchasePageState extends State<PurchasePage> {
                   label: 'สั่งซื้อ',
                   function: () async {
                     try{
-                      await OrderService.insertOrder('E-BANKING', shippingPrice!.dpName, shippingPrice!.dpPrice);
+                      await OrderService.insertOrder('E-BANKING', shippingPrice!.dpName, shippingPrice!.dpPrice,Auth.user.address);
                       Order.basket = [];
                       Navigator.popUntil(context, ModalRoute.withName('/basket'));
                       Navigator.pushReplacementNamed(context, '/profile');

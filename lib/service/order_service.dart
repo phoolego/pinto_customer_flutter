@@ -27,7 +27,7 @@ class OrderService{
       throw err.toString();
     }
   }
-  static Future<void> insertOrder(String paymentType, String deliveryType, double deliveryPrice) async {
+  static Future<void> insertOrder(String paymentType, String deliveryType, double deliveryPrice, String destination) async {
     try {
       List<Map<String,dynamic>> itemOrders = Order.basket.map((e) => e.getMap()).toList();
       print(json.encode(itemOrders));
@@ -40,7 +40,8 @@ class OrderService{
           'paymentType': paymentType,
           'deliveryType': deliveryType,
           'deliveryPrice': deliveryPrice,
-          'orderItem': json.encode(itemOrders)
+          'orderItem': json.encode(itemOrders),
+          'destination': destination,
         }
       );
     } on DioError catch (err) {
