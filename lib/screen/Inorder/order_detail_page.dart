@@ -6,6 +6,7 @@ import 'package:pinto_customer_flutter/model/order.dart';
 import 'package:pinto_customer_flutter/model/order_item.dart';
 import 'package:pinto_customer_flutter/service/auth.dart';
 import 'package:pinto_customer_flutter/service/order_service.dart';
+import 'package:pinto_customer_flutter/service/transaction_upload.dart';
 
 class OrderDetailPage extends StatefulWidget {
   Order order;
@@ -123,7 +124,12 @@ class _OrderDetailPageState extends State<OrderDetailPage> {
                           label: 'เพิ่มหลักฐานการชำระเงิน',
                           buttonColor: lightGreen,
                           function: () {
-                            Navigator.pushNamed(context, '');
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => TransactionUpload(
+                                orderId: widget.order.orderId,
+                              ))
+                            );
                           },
                         )
                       : SizedBox()),

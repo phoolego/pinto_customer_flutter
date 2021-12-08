@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
+import 'package:http_parser/http_parser.dart';
 import 'package:pinto_customer_flutter/api/api.dart';
 import 'package:pinto_customer_flutter/model/order.dart';
 import 'dart:convert';
@@ -44,6 +47,32 @@ class OrderService{
           'destination': destination,
         }
       );
+    } on DioError catch (err) {
+      print(err.response!.data['message']);
+      throw err.response!.data['message'];
+    } catch (err) {
+      print(err.toString());
+      throw err.toString();
+    }
+  }
+  static Future<void> payOrder(int orderId,File? img) async {
+    try {
+      if(img != null){
+        String fileName = img.path.split('/').last;
+        FormData formData = FormData.fromMap({
+          'orderId': orderId,
+          'tranPic':await MultipartFile.fromFile(img.path, filename:fileName,contentType: MediaType('image', fileName.split('.').last))
+        });
+        await Api.dio.put('/customer/order/paid',
+          data: formData,
+          options: Options(
+            headers: {
+              'userId':Auth.user.userId,
+            },
+            contentType: 'multipart/form-data',
+          ),
+        );
+      }
     } on DioError catch (err) {
       print(err.response!.data['message']);
       throw err.response!.data['message'];
