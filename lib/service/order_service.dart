@@ -9,7 +9,7 @@ class OrderService{
   static Future<List<Order>> getOrder(String? status) async {
     try {
       var response = await Api.dio.get(
-        '/customer/get-sell-product',
+        '/customer/order',
         options: Options(
           headers: {'userId': Auth.user.userId},
         ),
