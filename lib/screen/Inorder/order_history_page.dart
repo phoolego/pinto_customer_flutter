@@ -13,8 +13,6 @@ class OrderHistoryPage extends StatefulWidget {
 }
 
 class _OrderHistoryPageState extends State<OrderHistoryPage> {
-  String status = '';
-
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +35,7 @@ class _OrderHistoryPageState extends State<OrderHistoryPage> {
       ),
       body: SafeArea(
           child: FutureBuilder<List<Order>>(
-              future: OrderService.getOrder('status'),
+              future: OrderService.getOrder(widget.status),
               builder: (BuildContext context, AsyncSnapshot<List<Order>> snapshot) {
                 if (!snapshot.hasData) {
                   return const Center(

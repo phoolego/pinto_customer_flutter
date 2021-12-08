@@ -13,8 +13,6 @@ class OrderSendingPage extends StatefulWidget {
 }
 
 class _OrderSendingPageState extends State<OrderSendingPage> {
-  String status = '';
-
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +35,7 @@ class _OrderSendingPageState extends State<OrderSendingPage> {
       ),
       body: SafeArea(
           child: FutureBuilder<List<Order>>(
-              future: OrderService.getOrder('status'),
+              future: OrderService.getOrder(widget.status),
               builder: (BuildContext context, AsyncSnapshot<List<Order>> snapshot) {
                 if (!snapshot.hasData) {
                   return const Center(
