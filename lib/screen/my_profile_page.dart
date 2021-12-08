@@ -205,7 +205,7 @@ class MyProfilePage extends StatelessWidget {
                               Container(
                                 padding: EdgeInsets.only(top: 5),
                                 child: const Text(
-                                  'รอการยืนยัน',
+                                  'รอยืนยัน',
                                   textAlign: TextAlign.center,
                                   style: kContentTextBlack,
                                 ),
