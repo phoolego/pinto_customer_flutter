@@ -193,7 +193,7 @@ class MyProfilePage extends StatelessWidget {
                         onTap: () {
                           Navigator.pushNamed(
                             context,
-                            '/inorder/sending',
+                            '/inorder/confirming',
                           );
                         },
                         child: Container(
@@ -205,7 +205,7 @@ class MyProfilePage extends StatelessWidget {
                               Container(
                                 padding: EdgeInsets.only(top: 5),
                                 child: const Text(
-                                  'ที่ต้องจัดส่ง',
+                                  'รอการยืนยัน',
                                   textAlign: TextAlign.left,
                                   style: kContentTextBlack,
                                 ),
@@ -222,7 +222,7 @@ class MyProfilePage extends StatelessWidget {
                         onTap: () {
                           Navigator.pushNamed(
                             context,
-                            '/inorder/receiving',
+                            '/inorder/sending',
                           );
                         },
                         child: Container(

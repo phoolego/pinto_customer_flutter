@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pinto_customer_flutter/screen/Inorder/OrderConfirmingPage.dart';
 import 'package:pinto_customer_flutter/screen/Inorder/order_detail_page.dart';
 import 'package:pinto_customer_flutter/screen/Inorder/order_history_page.dart';
 import 'package:pinto_customer_flutter/screen/Inorder/order_paying_page.dart';
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
         '/inorder/detail': (context) => OrderDetailPage(),
         '/inorder/pre-ordering': (context) => OrderPreOrdering(),
         '/inorder/paying': (context) => OrderPayingPage(status:'WAIT'),
-        '/inorder/paying': (context) => OrderPayingPage(status:'PAID'),
+        '/inorder/confirming': (context) => OrderConfirmingPage(status:'PAID'),
         '/inorder/sending': (context) => OrderSendingPage(status:'VALIDATE'),
         '/purchase': (context) => PurchasePage(),
       },
