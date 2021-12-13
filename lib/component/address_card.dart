@@ -5,13 +5,16 @@ class AddressCard extends StatelessWidget {
   int id = 0;
   String addressName = '';
   String address = '';
+  bool inUse = false;
   var function;
 
-  AddressCard(
-      {required this.id,
-        required this.addressName,
-        required this.address,
-        required this.function});
+  AddressCard({
+    required this.id,
+    required this.addressName,
+    required this.address,
+    required this.inUse,
+    required this.function
+  });
 
 
   @override
@@ -21,7 +24,7 @@ class AddressCard extends StatelessWidget {
     return InkWell(
       onTap: function,
       child: Container(
-        padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+        padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
         // height: screenHeight*0.15,
         width: screenWidth*0.8,
         child: Column(
@@ -29,35 +32,45 @@ class AddressCard extends StatelessWidget {
           children: [
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                  padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            addressName,
-                            textAlign: TextAlign.left,
-                            style: kContentTextBlackBold,
-                          ),
-                          SizedBox(
-                            width: screenWidth*0.7,
-                            child: Text(
-                              address,
-                              textAlign: TextAlign.left,
-                              style: kContentTextBlack,
-                              maxLines: 4,
-                              // softWrap: true,
-                            ),
-                          ),
-                        ],
-                      )
+                      Text(
+                        addressName,
+                        textAlign: TextAlign.left,
+                        style: kContentTextBlackBold,
+                      ),
+                      SizedBox(
+                        width: screenWidth*0.7,
+                        child: Text(
+                          address,
+                          textAlign: TextAlign.left,
+                          style: kContentTextBlack,
+                          maxLines: 4,
+                          // softWrap: true,
+                        ),
+                      ),
                     ],
                   ),
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    inUse?const Text(
+                      'ใช้งาน',
+                      textAlign: TextAlign.left,
+                      style: kContentTextBlack,
+                      maxLines: 4,
+                      // softWrap: true,
+                    ):const Text(''),
+                    Icon(Icons.edit),
+                  ],
                 ),
               ],
             ),

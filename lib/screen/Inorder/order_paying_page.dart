@@ -51,6 +51,7 @@ class _OrderPayingPageState extends State<OrderPayingPage> {
                       Expanded(
                         child: ListView.builder(
                           itemCount: listOrder.length,
+                          padding: EdgeInsets.only(bottom:screenHeight * 0.05),
                           itemBuilder: (context,index)=>
                               Padding(
                                   padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.03),
@@ -73,9 +74,6 @@ class _OrderPayingPageState extends State<OrderPayingPage> {
                       //   },
                       //   ),
                       // ),
-                      SizedBox(
-                        height: screenHeight * 0.1,
-                      ),
                     ],
                   );
                 }

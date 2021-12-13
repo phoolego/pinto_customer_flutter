@@ -3,8 +3,10 @@ import 'package:pinto_customer_flutter/component/pinto_button.dart';
 import 'package:pinto_customer_flutter/constant.dart';
 import 'package:pinto_customer_flutter/model/delivery_price.dart';
 import 'package:pinto_customer_flutter/model/order.dart';
+import 'package:pinto_customer_flutter/model/user_address.dart';
 import 'package:pinto_customer_flutter/service/auth.dart';
 import 'package:pinto_customer_flutter/service/order_service.dart';
+import 'package:pinto_customer_flutter/service/user_address_service.dart';
 
 class PurchasePage extends StatefulWidget {
   const PurchasePage({Key? key}) : super(key: key);
@@ -33,6 +35,9 @@ class _PurchasePageState extends State<PurchasePage> {
     super.initState();
     shippingPrice=pickUp;
   }
+
+  UserAddress userAddress = UserAddress.empty();
+
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
@@ -56,8 +61,27 @@ class _PurchasePageState extends State<PurchasePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('จัดส่งไปที่ : ${Auth.user.address}',style: kHeadingTextStyle,),
-              Divider(thickness: 2,),
+              FutureBuilder<UserAddress>(
+                future: UserAddressService.getDefaultAddress(),
+                builder: (BuildContext context, AsyncSnapshot<UserAddress> snapshot) {
+                  if (!snapshot.hasData) {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }
+                  else {
+                    userAddress = snapshot.data!;
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('จัดส่งไปที่ : ${userAddress.addressName}',style: kHeadingTextStyle,),
+                        Text('\t\t${userAddress.address}',style: kHeadingTextStyle,),
+                      ],
+                    );
+                  }
+                }
+              ),
+              const Divider(thickness: 2,),
               Expanded(
                 child: ListView.builder(
                   itemCount: Order.basket.length,
@@ -132,7 +156,7 @@ class _PurchasePageState extends State<PurchasePage> {
                   label: 'สั่งซื้อ',
                   function: () async {
                     try{
-                      await OrderService.insertOrder('E-BANKING', shippingPrice!.dpName, shippingPrice!.dpPrice,Auth.user.address);
+                      await OrderService.insertOrder('E-BANKING', shippingPrice!.dpName, shippingPrice!.dpPrice,userAddress.address);
                       Order.basket = [];
                       Navigator.popUntil(context, ModalRoute.withName('/basket'));
                       Navigator.pushReplacementNamed(context, '/profile');

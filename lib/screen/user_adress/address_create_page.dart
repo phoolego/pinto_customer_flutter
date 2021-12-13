@@ -67,6 +67,7 @@ class _AddressCreatePageState extends State<AddressCreatePage> {
                     if(_formKey.currentState!.validate()){
                       try{
                         await UserAddressService.insertUserAddress(addressName, address);
+                        Navigator.popUntil(context, ModalRoute.withName('/profile'));
                         Navigator.pushNamed(context, '/address');
                       }catch(err){
                         setState(() {

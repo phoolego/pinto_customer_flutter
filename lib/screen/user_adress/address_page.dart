@@ -21,7 +21,7 @@ class _AddressPageState extends State<AddressPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: deepGreen,
-        title: Text(
+        title: const Text(
           'ที่อยู่ที่บันทึกไว้',
           style: kAppbarTextStyle,
         ),
@@ -41,42 +41,24 @@ class _AddressPageState extends State<AddressPage> {
                 children: [
                   Expanded(
                     child: ListView.builder(
-                        itemCount: listUserAddress.length,
-                        itemBuilder: (context,index)=>
-                            Padding(
-                            padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.03),
-                              child: AddressCard(
-                                id: listUserAddress[index].id,
-                                addressName: listUserAddress[index].addressName,
-                                address: listUserAddress[index].address,
-                                function: null,
-                            )
-                        ),
+                      itemCount: listUserAddress.length,
+                      itemBuilder: (context,index)=>
+                        Padding(
+                        padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.03),
+                          child: AddressCard(
+                            id: listUserAddress[index].id,
+                            addressName: listUserAddress[index].addressName,
+                            address: listUserAddress[index].address,
+                            inUse: listUserAddress[index].inUse,
+                            function: (){
 
-                        // Container(
-                        //   //one adress one container
-                        //   child: Column(
-                        //     mainAxisAlignment: MainAxisAlignment.start,
-                        //     crossAxisAlignment: CrossAxisAlignment.start,
-                        //     children: [
-                        //       Text(
-                        //         'หอพัก',
-                        //         textAlign: TextAlign.left,
-                        //         style: kHeadingTextStyle,
-                        //       ),
-                        //       Text(
-                        //         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum arcu eget '
-                        //             'nulla elementum, scelerisque elementum ligula porttitor. In ac convallis augue. Etiam '
-                        //             'ac mauris viverra diam ultricies dapibus a a sapien.',
-                        //         textAlign: TextAlign.left,
-                        //         style: kContentTextBlack,
-                        //         maxLines: 3,
-                        //         softWrap: true,
-                        //       ),
-                        //     ],
-                        //   ),
-                        // ),
+                            },
+                        )
+                      ),
                     ),
+                  ),
+                  SizedBox(
+                    height: screenHeight * 0.02,
                   ),
                   Center(
                     child: PintoButton(
@@ -88,7 +70,7 @@ class _AddressPageState extends State<AddressPage> {
                     ),
                   ),
                   SizedBox(
-                    height: screenHeight * 0.1,
+                    height: screenHeight * 0.05,
                   ),
                 ],
               );

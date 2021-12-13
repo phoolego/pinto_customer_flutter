@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pinto_customer_flutter/constant.dart';
 import 'package:pinto_customer_flutter/model/product_preview.dart';
-import 'package:pinto_customer_flutter/screen/add_pre_order.dart';
+import 'package:pinto_customer_flutter/screen/purchase/add_pre_order.dart';
 import 'package:pinto_customer_flutter/screen/basket/add_to_basket.dart';
 import 'package:pinto_customer_flutter/screen/product_detail_page.dart';
 import 'package:pinto_customer_flutter/service/date_format.dart';

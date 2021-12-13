@@ -50,6 +50,7 @@ class _OrderPreOrderPageState extends State<OrderPreOrderPage> {
                       Expanded(
                         child: ListView.builder(
                           itemCount: listPreOrder.length,
+                          padding: EdgeInsets.only(bottom:screenHeight * 0.05),
                           itemBuilder: (context,index)=>
                               Padding(
                                   padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.03),
@@ -72,9 +73,6 @@ class _OrderPreOrderPageState extends State<OrderPreOrderPage> {
                       //   },
                       //   ),
                       // ),
-                      SizedBox(
-                        height: screenHeight * 0.1,
-                      ),
                     ],
                   );
                 }

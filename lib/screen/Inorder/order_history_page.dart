@@ -49,6 +49,7 @@ class _OrderHistoryPageState extends State<OrderHistoryPage> {
                       Expanded(
                         child: ListView.builder(
                           itemCount: listOrder.length,
+                          padding: EdgeInsets.only(bottom:screenHeight * 0.05),
                           itemBuilder: (context,index)=>
                               Padding(
                                   padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.03),
@@ -71,9 +72,6 @@ class _OrderHistoryPageState extends State<OrderHistoryPage> {
                       //   },
                       //   ),
                       // ),
-                      SizedBox(
-                        height: screenHeight * 0.1,
-                      ),
                     ],
                   );
                 }
