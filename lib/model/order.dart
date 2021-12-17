@@ -25,32 +25,6 @@ class Order {
     orderItems = (jsonOrder['orderItem'] as List).map((e) => OrderItem(e)).toList();
   }
 
-  static List<OrderItem> basket = [];
-
-  static void addToBasket(OrderItem orderItem){
-    bool found = false;
-    for(int i=0 ; i<basket.length ; i++){
-      if(basket[i].productType==orderItem.productType){
-        basket[i].amount = orderItem.amount;
-        basket[i].price = orderItem.price;
-        found = true;
-        break;
-      }
-    }
-    if(!found){
-      basket.add(orderItem);
-    }
-  }
-
-  static OrderItem getBasketItem(String productType){
-    for(int i=0 ; i<basket.length ; i++){
-      if(basket[i].productType==productType){
-        return basket[i];
-      }
-    }
-    return OrderItem.basket(0, 0, '', '', null);
-  }
-
   String getStatus(){
     if(status=='WAIT'){
       return 'รอการชำระเงิน';
@@ -63,5 +37,64 @@ class Order {
     }else{
       return '';
     }
+  }
+
+  static List<OrderItem> basket = [];
+
+  static void addToBasket(OrderItem orderItem){
+    bool found = false;
+    for(int i=0 ; i<basket.length ; i++){
+      if(basket[i].ppoId==null || orderItem.ppoId==null){
+        if(basket[i].ppoId==null && basket[i].productType==orderItem.productType){
+          basket[i].amount = orderItem.amount;
+          basket[i].price = orderItem.price;
+          found = true;
+          break;
+        }
+      }else{
+        if(basket[i].ppoId==orderItem.ppoId){
+          basket[i].amount = orderItem.amount;
+          basket[i].price = orderItem.price;
+          found = true;
+          break;
+        }
+      }
+    }
+    if(!found){
+      basket.add(orderItem);
+    }
+  }
+
+  static OrderItem getBasketItem(String productType){
+    for(int i=0 ; i<basket.length ; i++){
+      if(basket[i].productType==productType && basket[i].ppoId==null){
+        return basket[i];
+      }
+    }
+    return OrderItem.basket(0, 0, '', '', null,null);
+  }
+
+  static void removeBasketItem(OrderItem orderItem){
+    bool found = false;
+    for(int i=0 ; i<basket.length ; i++){
+      if(basket[i].ppoId==null || orderItem.ppoId==null){
+        if(basket[i].ppoId==null && basket[i].productType==orderItem.productType){
+          basket.remove(basket[i]);
+        }
+      }else{
+        if(basket[i].ppoId==orderItem.ppoId){
+          basket.remove(basket[i]);
+        }
+      }
+    }
+  }
+
+  static bool isPreOrderInBasket(int ppoId){
+    for(int i=0 ; i<basket.length ; i++){
+      if(basket[i].ppoId == ppoId){
+        return true;
+      }
+    }
+    return false;
   }
 }

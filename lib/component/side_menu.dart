@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pinto_customer_flutter/constant.dart';
+import 'package:pinto_customer_flutter/model/order.dart';
 // import 'package:pinto_farmer_flutter/screen/farmer_product_sale_Page.dart';
 import 'package:pinto_customer_flutter/service/auth.dart';
 
@@ -64,7 +65,7 @@ SideMenu({this.firstName, this.lastName});
             ),
             ListTile(
               leading: Icon(Icons.shopping_cart),
-              title: Text('ตะกร้า',style: kContentTextBlack),
+              title: Text('ตะกร้า (${Order.basket.length})',style: kContentTextBlack),
               onTap: (){
                 if(currentPage=='ตะกร้า'){
                   Navigator.pop(context);

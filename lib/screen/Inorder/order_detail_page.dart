@@ -16,7 +16,6 @@ class _OrderDetailPageState extends State<OrderDetailPage> {
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
-    // Order order;
     double totalPrice = 0.0;
     for (int i = 0; i < widget.order.orderItems.length; i++) {
       totalPrice += widget.order.orderItems[i].price;

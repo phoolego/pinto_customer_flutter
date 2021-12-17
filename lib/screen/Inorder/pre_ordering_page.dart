@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:pinto_customer_flutter/component/order_card.dart';
 import 'package:pinto_customer_flutter/component/preorder_card.dart';
 import 'package:pinto_customer_flutter/constant.dart';
 import 'package:pinto_customer_flutter/model/pre_order.dart';
 import 'package:pinto_customer_flutter/service/pre_order_service.dart';
 
-class OrderPreOrderPage extends StatefulWidget {
+class PreOrderPage extends StatefulWidget {
   String? status = '';
-  OrderPreOrderPage({required this.status,
+  PreOrderPage({required this.status,
   });
   @override
-  State<OrderPreOrderPage> createState() => _OrderPreOrderPageState();
+  State<PreOrderPage> createState() => _PreOrderPageState();
 }
 
-class _OrderPreOrderPageState extends State<OrderPreOrderPage> {
+class _PreOrderPageState extends State<PreOrderPage> {
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +22,7 @@ class _OrderPreOrderPageState extends State<OrderPreOrderPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: deepGreen,
-        title: Text(
+        title: const Text(
           'สินค้าที่สั่งจอง',
           style: kAppbarTextStyle,
         ),
@@ -31,7 +30,7 @@ class _OrderPreOrderPageState extends State<OrderPreOrderPage> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back_ios),
+          icon: const Icon(Icons.arrow_back_ios),
         ),
       ),
       body: SafeArea(
@@ -59,7 +58,6 @@ class _OrderPreOrderPageState extends State<OrderPreOrderPage> {
                                     // status: listOrder[index].status,
                                     // createdDate: listOrder[index].createdDate,
                                     preOrder: listPreOrder[index],
-                                    function: null,
                                   )
                               ),
                         ),

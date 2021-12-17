@@ -3,7 +3,7 @@ import 'package:pinto_customer_flutter/screen/Inorder/order_confirming_page.dart
 import 'package:pinto_customer_flutter/screen/Inorder/order_detail_page.dart';
 import 'package:pinto_customer_flutter/screen/Inorder/order_history_page.dart';
 import 'package:pinto_customer_flutter/screen/Inorder/order_paying_page.dart';
-import 'package:pinto_customer_flutter/screen/Inorder/order_pre_ordering_page.dart';
+import 'package:pinto_customer_flutter/screen/Inorder/pre_ordering_page.dart';
 import 'package:pinto_customer_flutter/screen/Inorder/order_sending_page.dart';
 import 'package:pinto_customer_flutter/screen/user_adress/address_create_page.dart';
 import 'package:pinto_customer_flutter/screen/user_adress/address_page.dart';
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
         '/basket': (context) => BasketPage(),
         '/inorder/history': (context) => OrderHistoryPage(status:'COMPLETE'),
         // '/inorder/detail': (context) => OrderDetailPage(),
-        '/inorder/pre-ordering': (context) => OrderPreOrderPage(status:null),
+        '/inorder/pre-ordering': (context) => PreOrderPage(status:null),
         '/inorder/paying': (context) => OrderPayingPage(status:'WAIT'),
         '/inorder/confirming': (context) => OrderConfirmingPage(status:'PAID'),
         '/inorder/sending': (context) => OrderSendingPage(status:'VALIDATE'),

@@ -1,24 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:pinto_customer_flutter/constant.dart';
-import 'package:pinto_customer_flutter/model/order.dart';
 import 'package:pinto_customer_flutter/model/pre_order.dart';
-import 'package:pinto_customer_flutter/screen/Inorder/order_detail_page.dart';
+import 'package:pinto_customer_flutter/screen/Inorder/pre_order_detail_page.dart';
 import 'package:pinto_customer_flutter/service/date_format.dart';
 
 class PreOrderCard extends StatelessWidget {
   PreOrder preOrder;
-  var function;
-  PreOrderCard({required this.preOrder, required this.function});
+  PreOrderCard({required this.preOrder});
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     return InkWell(
       onTap: () {
-        // Navigator.push(
-        //     context,
-        //     MaterialPageRoute(
-        //         builder: (context) => OrderDetailPage(PreOrder: preOrder)));
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => PreOrderDetailPage(preOrder: preOrder)));
       },
       child: Container(
         padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
@@ -30,7 +28,7 @@ class PreOrderCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                  padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -58,11 +56,6 @@ class PreOrderCard extends StatelessWidget {
                     ],
                   ),
                 ),
-                // Text(
-                //   'รายละเอียด',
-                //   textAlign: TextAlign.right,
-                //   style: kContentTextBlack,
-                // )
               ],
             ),
             const Divider(

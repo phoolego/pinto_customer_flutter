@@ -17,7 +17,7 @@ class OrderItem {
     productType = jsonOrderItem['type_of_product'];
     ppoId = jsonOrderItem['ppo_id'];
   }
-  OrderItem.basket(this.amount, this.price, this.productType, this.unit, this.picUrl){
+  OrderItem.basket(this.amount, this.price, this.productType, this.unit, this.picUrl, this.ppoId){
     orderItemId = 0;
     orderId = 0;
   }
