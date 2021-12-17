@@ -47,4 +47,23 @@ class PreOrderService{
       throw err.toString();
     }
   }
+  static Future<void> cancelPreOrder(int ppoId) async {
+    try {
+      await Api.dio.put(
+          '/customer/pre-order/cancel',
+          options: Options(
+            headers: {'userId': Auth.user.userId},
+          ),
+          data: {
+            'ppoId': ppoId,
+          }
+      );
+    } on DioError catch (err) {
+      print(err.response!.data['message']);
+      throw err.response!.data['message'];
+    } catch (err) {
+      print(err.toString());
+      throw err.toString();
+    }
+  }
 }

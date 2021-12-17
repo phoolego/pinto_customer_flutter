@@ -51,26 +51,19 @@ class _PreOrderPageState extends State<PreOrderPage> {
                           itemCount: listPreOrder.length,
                           padding: EdgeInsets.only(bottom:screenHeight * 0.05),
                           itemBuilder: (context,index)=>
-                              Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.03),
-                                  child: PreOrderCard(
-                                    // id: listOrder[index].orderId,
-                                    // status: listOrder[index].status,
-                                    // createdDate: listOrder[index].createdDate,
-                                    preOrder: listPreOrder[index],
-                                  )
-                              ),
+                            Padding(
+                              padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.03),
+                              child: PreOrderCard(
+                                preOrder: listPreOrder[index],
+                                operation: (){
+                                  setState(() {
+                                    print('reload PreOrderPage');
+                                  });
+                                },
+                              )
+                            ),
                         ),
                       ),
-                      // Center(
-                      //   child: PintoButton(
-                      //     width: 200,
-                      //     label: 'เพิ่มหลักฐานการชำระเงิน',
-                      //     buttonColor: lightGreen, function: () {
-                      //     Navigator.pushNamed(context, '');
-                      //   },
-                      //   ),
-                      // ),
                     ],
                   );
                 }

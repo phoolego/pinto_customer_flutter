@@ -6,7 +6,8 @@ import 'package:pinto_customer_flutter/service/date_format.dart';
 
 class PreOrderCard extends StatelessWidget {
   PreOrder preOrder;
-  PreOrderCard({required this.preOrder});
+  var operation;
+  PreOrderCard({required this.preOrder,required this.operation});
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
@@ -16,7 +17,7 @@ class PreOrderCard extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => PreOrderDetailPage(preOrder: preOrder)));
+                builder: (context) => PreOrderDetailPage(preOrder: preOrder,operation: operation,)));
       },
       child: Container(
         padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),

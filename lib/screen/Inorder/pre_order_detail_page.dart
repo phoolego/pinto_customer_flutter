@@ -5,10 +5,12 @@ import 'package:pinto_customer_flutter/model/order.dart';
 import 'package:pinto_customer_flutter/model/order_item.dart';
 import 'package:pinto_customer_flutter/model/pre_order.dart';
 import 'package:pinto_customer_flutter/service/date_format.dart';
+import 'package:pinto_customer_flutter/service/pre_order_service.dart';
 
 class PreOrderDetailPage extends StatefulWidget {
   PreOrder preOrder;
-  PreOrderDetailPage({Key? key,required this.preOrder}) : super(key: key);
+  var operation;
+  PreOrderDetailPage({Key? key,required this.preOrder,required this.operation}) : super(key: key);
 
   @override
   _PreOrderDetailPageState createState() => _PreOrderDetailPageState();
@@ -106,7 +108,10 @@ class _PreOrderDetailPageState extends State<PreOrderDetailPage> {
                       width: 150,
                       label: 'ยกเลิกการจอง',
                       buttonColor: lightBlack,
-                      function: () {
+                      function: () async {
+                        await PreOrderService.cancelPreOrder(preOrder.ppoId);
+                        widget.operation();
+                        Navigator.pop(context);
                       },
                     ),
                     Order.isPreOrderInBasket(preOrder.ppoId)?PintoButton(
@@ -135,7 +140,18 @@ class _PreOrderDetailPageState extends State<PreOrderDetailPage> {
                       },
                     )
                   ],
-                ):const SizedBox(),
+                ):Center(
+                  child: PintoButton(
+                    width: 150,
+                    label: 'ยกเลิกการจอง',
+                    buttonColor: lightBlack,
+                    function: () async {
+                      await PreOrderService.cancelPreOrder(preOrder.ppoId);
+                      widget.operation();
+                      Navigator.pop(context);
+                    },
+                  ),
+                ),
                 SizedBox(
                   height: screenHeight * 0.1,
                 ),
