@@ -30,25 +30,27 @@ class MyProfilePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                      padding: const EdgeInsets.only(right: 10),
-                      width: 90,
-                      height: 90,
-                      child: Image.asset('assets/images/Icons.jpg'),
-                    ),
-                    Container(
-
-                      child: Text(
-                        '${Auth.user.firstname} \n${Auth.user.lastname}',
-                        textAlign: TextAlign.left,
-                        style: kHeadingTextStyle,
-                      ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.only(right: 10),
+                          width: 90,
+                          height: 90,
+                          child: Image.asset('assets/images/Icons.jpg'),
+                        ),
+                        Text(
+                          '${Auth.user.firstname} \n${Auth.user.lastname}',
+                          textAlign: TextAlign.left,
+                          style: kHeadingTextStyle,
+                        ),
+                      ],
                     ),
                     IconButton(
                       onPressed: () {
                         Navigator.pushNamed(context, '/profile/edit');
                       },
-                      icon: Icon(Icons.edit),
+                      icon: const Icon(Icons.edit),
                       alignment: Alignment.topCenter,
                     ),
                   ],

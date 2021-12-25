@@ -28,7 +28,6 @@ class AddressCard extends StatelessWidget {
         // height: screenHeight*0.15,
         width: screenWidth*0.8,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -76,7 +75,7 @@ class AddressCard extends StatelessWidget {
             ),
             const Divider(
               // height: 20,
-              thickness: 1,
+              thickness: 2,
               color: Colors.black12,
             ),
           ],
