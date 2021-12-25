@@ -3,6 +3,7 @@ import 'package:pinto_customer_flutter/component/address_card.dart';
 import 'package:pinto_customer_flutter/component/pinto_button.dart';
 import 'package:pinto_customer_flutter/constant.dart';
 import 'package:pinto_customer_flutter/model/user_address.dart';
+import 'package:pinto_customer_flutter/screen/user_adress/address_edit_page.dart';
 import 'package:pinto_customer_flutter/service/user_address_service.dart';
 
 class AddressPage extends StatefulWidget {
@@ -51,7 +52,12 @@ class _AddressPageState extends State<AddressPage> {
                             address: listUserAddress[index].address,
                             inUse: listUserAddress[index].inUse,
                             function: (){
-
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => AddressEditPage(userAddress: listUserAddress[index],)
+                                )
+                              );
                             },
                         )
                       ),

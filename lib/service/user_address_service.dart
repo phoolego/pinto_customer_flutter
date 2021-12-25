@@ -65,10 +65,31 @@ class UserAddressService{
       throw err.toString();
     }
   }
-  static Future<List<UserAddress>> setDefaultAddress(int addressId) async {
+  static Future<void> updateUserAddress(int addressId,String addressName,String address) async {
     try {
-      var response = await Api.dio.put(
-          '/address/create',
+      await Api.dio.put(
+          '/address/update',
+          options: Options(
+            headers: {'userId': Auth.user.userId},
+          ),
+          data: {
+            'id': addressId,
+            'addressName':addressName,
+            'address':address
+          }
+      );
+    } on DioError catch (err) {
+      print(err.response!.data['message']);
+      throw err.response!.data['message'];
+    } catch (err) {
+      print(err.toString());
+      throw err.toString();
+    }
+  }
+  static Future<void> setDefaultAddress(int addressId) async {
+    try {
+      await Api.dio.put(
+          '/address/set-default',
           options: Options(
             headers: {'userId': Auth.user.userId},
           ),
@@ -76,8 +97,25 @@ class UserAddressService{
             'id':addressId,
           }
       );
-      List<UserAddress> userAddress = (response.data as List).map((e) => UserAddress(e)).toList();
-      return userAddress;
+    } on DioError catch (err) {
+      print(err.response!.data['message']);
+      throw err.response!.data['message'];
+    } catch (err) {
+      print(err.toString());
+      throw err.toString();
+    }
+  }
+  static Future<void> deleteAddress(int addressId) async {
+    try {
+      await Api.dio.delete(
+          '/address/delete',
+          options: Options(
+            headers: {'userId': Auth.user.userId},
+          ),
+          data: {
+            'id':addressId,
+          }
+      );
     } on DioError catch (err) {
       print(err.response!.data['message']);
       throw err.response!.data['message'];

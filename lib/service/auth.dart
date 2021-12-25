@@ -73,7 +73,7 @@ class Auth {
   }
   static Future<void> updateUser(String firstname, String lastname, String address, String contact) async{
     try {
-      var response = await Api.dio.put('/update-farmer',
+      var response = await Api.dio.put('/update-user',
         data:{
           'firstname':firstname,
           'lastname':lastname,
@@ -89,6 +89,7 @@ class Auth {
       );
       user = User(response.data);
     } on DioError catch (err) {
+      print(err.response!);
       if(err.response==null){
         throw 'การเชื่อมต่อขัดข้อง';
       }else if(err.response!.statusCode==403){

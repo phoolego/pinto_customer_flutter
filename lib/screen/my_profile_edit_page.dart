@@ -186,45 +186,44 @@ class _MyProfileEditPageState extends State<MyProfileEditPage> {
                             function: () async {
                               if (_formKey.currentState!.validate()) {
                                 try {
-                                  // await Auth.updateFarmer(farmName, maxArea,
-                                  //     firstname, lastname, address, contact);
-                                  // Navigator.pop(context);
-                                  // Navigator.pushReplacementNamed(
-                                  //     context, '/profile');
-                                  showDialog<String>(
-                                    context: context,
-                                    builder: (BuildContext context) =>
-                                        AlertDialog(
-                                          title: const Text('คำเตือน',
-                                              style: kHeadingTextStyle),
-                                          content: const Text(
-                                              'กด "ตกลง" เพื่อทำรายการต่อ',
-                                              style: kHeadingTextStyle),
-                                          actions: <Widget>[
-                                            InkWell(
-                                                child: const Text(
-                                                  'ยกเลิก',
-                                                  style: kHeadingTextStyle,
-                                                ),
-                                                onTap: () {
-                                                  Navigator.pop(context);
-                                                }),
-                                            InkWell(
-                                              child: const Text(
-                                                'ตกลง',
-                                                style: kHeadingTextStyle,
-                                              ),
-                                              onTap: () async {
-                                                await Auth.updateUser(
-                                                    firstname, lastname, address, contact);
-                                                Navigator.pop(context);
-                                                Navigator.pushReplacementNamed(
-                                                    context, '/profile');
-                                              },
-                                            )
-                                          ],
-                                        ),
-                                  );
+                                  await Auth.updateUser(firstname, lastname, address, contact);
+                                  Navigator.pop(context);
+                                  Navigator.pushReplacementNamed(context, '/profile');
+                                  // showDialog<String>(
+                                  //   context: context,
+                                  //   builder: (BuildContext context) =>
+                                  //       AlertDialog(
+                                  //         title: const Text('คำเตือน',
+                                  //             style: kHeadingTextStyle),
+                                  //         content: const Text(
+                                  //             'กด "ตกลง" เพื่อทำรายการต่อ',
+                                  //             style: kHeadingTextStyle),
+                                  //         actions: <Widget>[
+                                  //           InkWell(
+                                  //               child: const Text(
+                                  //                 'ยกเลิก',
+                                  //                 style: kHeadingTextStyle,
+                                  //               ),
+                                  //               onTap: () {
+                                  //                 Navigator.pop(context);
+                                  //               }),
+                                  //           InkWell(
+                                  //             child: const Text(
+                                  //               'ตกลง',
+                                  //               style: kHeadingTextStyle,
+                                  //             ),
+                                  //             onTap: () async {
+                                  //
+                                  //               await Auth.updateUser(
+                                  //                   firstname, lastname, address, contact);
+                                  //               Navigator.popUntil(context, ModalRoute.withName('/profile'));
+                                  //               Navigator.pushReplacementNamed(
+                                  //                   context, '/profile');
+                                  //             },
+                                  //           )
+                                  //         ],
+                                  //       ),
+                                  // );
                                 } catch (err) {
                                   setState(() {
                                     _errorMessage = err.toString();
