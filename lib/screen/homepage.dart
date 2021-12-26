@@ -7,6 +7,8 @@ import 'package:pinto_customer_flutter/screen/product_detail_page.dart';
 import 'package:pinto_customer_flutter/service/product_service.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   _HomePageState createState() => _HomePageState();
 }

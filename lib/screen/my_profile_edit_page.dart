@@ -187,7 +187,7 @@ class _MyProfileEditPageState extends State<MyProfileEditPage> {
                               if (_formKey.currentState!.validate()) {
                                 try {
                                   await Auth.updateUser(firstname, lastname, address, contact);
-                                  Navigator.pop(context);
+                                  Navigator.popUntil(context, ModalRoute.withName('/profile'));
                                   Navigator.pushReplacementNamed(context, '/profile');
                                   // showDialog<String>(
                                   //   context: context,
