@@ -137,11 +137,12 @@ class _AddToBasketState extends State<AddToBasket> {
                           function: (){
                             if(_formKey.currentState!.validate()){
                               Order.addToBasket(OrderItem.basket(_amount, _price, product.name, product.unit,product.picUlr,null));
-                              Navigator.pop(context);
                               if(widget.isGotoBasket){
-                                Navigator.popUntil(context, ModalRoute.withName('/home'));
+                                Navigator.popUntil(context, (route) => route.isFirst);
                                 Navigator.pushReplacementNamed(context, '/basket');
                                 Navigator.pushNamed(context, '/purchase');
+                              }else{
+                                Navigator.pop(context);
                               }
                             }
                           },
